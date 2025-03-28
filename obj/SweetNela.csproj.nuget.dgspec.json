@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela2\\SweetNela\\SweetNela.csproj": {}
+    "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\SweetNela.csproj": {}
   },
   "projects": {
-    "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela2\\SweetNela\\SweetNela.csproj": {
+    "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\SweetNela.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela2\\SweetNela\\SweetNela.csproj",
+        "projectUniqueName": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\SweetNela.csproj",
         "projectName": "SweetNela",
-        "projectPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela2\\SweetNela\\SweetNela.csproj",
-        "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-        "outputPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela2\\SweetNela\\obj\\",
+        "projectPath": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\SweetNela.csproj",
+        "packagesPath": "C:\\Users\\Palacios\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Palacios\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
