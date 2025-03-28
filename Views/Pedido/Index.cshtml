@@ -2,53 +2,66 @@
 @{
     ViewBag.Title = "Index";
 }
-<form method="post" asp-action="Pedido">
-    <div class="form-group  mt-2">
-        <label for="sabor">Sabor</label>
-        <select class="form-control" id="sabor" name="Sabor" required>
-            <option value="Chocolate">Chocolate +</option>
-            <option value="Vainilla">Vainilla -</option>
-            <option value="Keke ingles">Keke ingles</option>
-            <option value="Red Velvet">Red Velvet</option>
-        </select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <link rel="stylesheet" href="~/css/pedido.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="form-container">
+        <h2>Realizar Pedido</h2>
+        <form method="post" asp-action="Pedido">
+            <div class="form-group">
+                <label for="sabor">Sabor</label>
+                <select class="form-control" id="sabor" name="Sabor" required>
+                    <option value="Chocolate">Chocolate +</option>
+                    <option value="Vainilla">Vainilla -</option>
+                    <option value="Keke ingles">Keke inglés</option>
+                    <option value="Red Velvet">Red Velvet</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tamaño">Tamaño</label>
+                <select class="form-control" id="tamaño" name="Tamaño" required>
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="relleno">Relleno</label>
+                <select class="form-control" id="relleno" name="Relleno" required>
+                    <option value="Manjar blanco">Manjar blanco +</option>
+                    <option value="Fudge">Fudge -</option>
+                    <option value="Oreo trozada">Oreo trozada</option>
+                    <option value="Chin chin">Chin chin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="detalles">Detalles</label>
+                <input type="text" class="form-control" id="detalles" name="Detalles" required />
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" id="fecha" name="Fecha" required />
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora</label>
+                <input type="time" class="form-control" id="hora" name="Hora" required />
+            </div>
+            <div class="form-group">
+                <label for="lugar">Lugar</label>
+                <input type="text" class="form-control" id="lugar" name="Lugar" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+        <div class="result">
+            <h3>PRECIO:</h3><p>@ViewData["Resultado"]</p>
+        </div>
+        <button type="submit" class="btn btn-primary">Pagar</button>
     </div>
-    <div class="form-group  mt-2">
-        <label for="tamaño">Tamaño</label>
-        <select class="form-control" id="tamaño" name="Tamaño" required>
-            <option value="Pequeño">Pequeño</option>
-            <option value="Mediano">Mediano</option>
-            <option value="Grande">Grande</option>
-        </select>
-    </div>
-    <div class="form-group  mt-2">
-        <label for="relleno">Relleno</label>
-        <select class="form-control" id="relleno" name="Relleno" required>
-            <option value="Manjar blanco">Manjar blanco +</option>
-            <option value="Fudge">Fudge -</option>
-            <option value="Oreo trozada">Oreo trozada</option>
-            <option value="Chin chin">Chin chin</option>
-        </select>
-    </div>
-    <div class="form-group"></div>
-        <label for="detalles">Detalles</label>
-        <input type="text" class="form-control" id="detalles" name="Detalles" required />
-    </div>
-    <div class="form-group"></div>
-        <label for="fecha">Fecha</label>
-        <input type="text" class="form-control" id="fecha" name="Fecha" required />
-    </div>
-    <div class="form-group"></div>
-        <label for="hora">Hora</label>
-        <input type="text" class="form-control" id="hora" name="Hora" required />
-    </div>
-      <div class="form-group"></div>
-        <label for="lugar">Lugar</label>
-        <input type="text" class="form-control" id="lugar" name="Lugar" required />
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-2">Calcular</button>
-</form>
-<div>
-    <h3>Resultado de los cálculos:</h3>
-    <p>@ViewData["Resultado"]</p>
-</div>
+</body>
+</html>

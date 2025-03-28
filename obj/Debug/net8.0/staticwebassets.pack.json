@@ -1,331 +1,335 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SweetNela.bundle.scp.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SweetNela.bundle.scp.css",
       "PackagePath": "staticwebassets\\SweetNela.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\css\\admin.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\css\\admin.css",
       "PackagePath": "staticwebassets\\css\\admin.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\css\\contacto.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\css\\contacto.css",
       "PackagePath": "staticwebassets\\css\\contacto.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\css\\home.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\css\\site.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\css\\pedido.css",
+      "PackagePath": "staticwebassets\\css\\pedido.css"
+    },
+    {
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\favicon.ico",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\1.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\1.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\1.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\2.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\2.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\2.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\3.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\3.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\3.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\4.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\4.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\4.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\5.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\5.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\5.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\6.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\6.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\6.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\cabroportada.jpg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\cabroportada.jpg",
       "PackagePath": "staticwebassets\\imagenes\\cabroportada.jpg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\cakecalendar.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\cakecalendar.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\cakecalendar.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\deadpool.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\deadpool.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\deadpool.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\emile.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\emile.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\emile.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\foto.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\foto.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\foto.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\kevin.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\kevin.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\kevin.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\nana.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\nana.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\nana.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\portada.png",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\portada.png",
       "PackagePath": "staticwebassets\\imagenes\\portada.png"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\ranitas.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\ranitas.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\ranitas.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\renzo.jpg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\renzo.jpg",
       "PackagePath": "staticwebassets\\imagenes\\renzo.jpg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\rositafresita.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\rositafresita.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\rositafresita.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\imagenes\\spiderman.jpeg",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\imagenes\\spiderman.jpeg",
       "PackagePath": "staticwebassets\\imagenes\\spiderman.jpeg"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\js\\site.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\Palacios\\Desktop\\SWEETNELAF\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela3\\SweetNela\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
