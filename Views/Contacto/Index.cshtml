@@ -4,9 +4,9 @@
     ViewData["Title"] = "Contacto";
 }
 
-<h1 style="color: #D9D9D9">Contacto</h1>
+<h1 style="color: #D9D9D9; text-align:center">Contacto</h1>
 
-<form method="post" asp-action="RegistrarContacto">
+<form method="post" asp-action="RegistrarContacto" style="margin-left:50px; margin-right:50px">
     <div class="form-group mt-2"> 
         <label asp-for="Nombres" style="color: #D9D9D9">Nombres:</label>
         <input type="text" class="form-control" asp-for="Nombres">
@@ -32,17 +32,16 @@
     <button type="submit" class="btn btn-primary mt-2">Enviar</button>
 </form>
 
-<!-- Display the Respuesta message below the form -->
 @if (!string.IsNullOrEmpty(Model.Respuesta))
 {
-    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" style="margin-left:50px;margin-right:50px">
         @Model.Respuesta
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
     </div>
 }
-<br><br>
-<div class="form-group" style="color: #D9D9D9"> 
-        <p>Nuestro horario de atención es de:</p>
+<br><br><br>
+<div class="form-group" style="color: #D9D9D9;margin-left:50px"> 
+        <p>Nuestro horario de atención:</p>
         <p>Lunes a Viernes de 8:00 a 18:00</p>
 </div>
 
