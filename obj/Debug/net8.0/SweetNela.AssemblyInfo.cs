@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SweetNela")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+509febd3b3a60baad7386d51c9cc8956afb36aed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f6a6696357907a099014f58c2d9cfcb589b1e32")]
 [assembly: System.Reflection.AssemblyProductAttribute("SweetNela")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SweetNela")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
