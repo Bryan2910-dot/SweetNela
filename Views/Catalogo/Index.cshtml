@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Catalogo";
+}
+
+<!-- Agregar FontAwesome en caso de que no esté en el layout -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="d-flex">
+    <div class="sidebar vh-100 position-fixed" style="width: 250px; background-color: #F5F5DC; color: #000;">
+<div class="d-flex justify-content-center align-items-center p-3">
+    <h4 class="m-0">Filtros</h4>
+    <i class="fa-solid fa-filter ms-2 p-2" style="color: black; background-color: white; border-radius: 5px;"></i>
+</div>
+<div>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#saboresSubfiltros" style="color: #000;">Sabores</a>
+            <ul id="saboresSubfiltros" class="collapse subfiltros">
+                <li><a href="#" class="d-block py-1 filter-item">Dulce</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Ácido</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Amargo</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tamanosSubfiltros" style="color: #000;">Tamaños</a>
+            <ul id="tamanosSubfiltros" class="collapse subfiltros">
+                <li><a href="#" class="d-block py-1 filter-item">Pequeño</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Mediano</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Grande</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#modelosSubfiltros" style="color: #000;">Modelos</a>
+            <ul id="modelosSubfiltros" class="collapse subfiltros">
+                <li><a href="#" class="d-block py-1 filter-item">Clásico</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Moderno</a></li>
+                <li><a href="#" class="d-block py-1 filter-item">Deportivo</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+    </div>
+    <div class="content flex-grow-1 p-3" style="margin-left: 250px;">
+        <h2>Contenido Principal</h2>
+        <p>Esta es la sección principal.</p>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Estilos adicionales -->
+<style>
+    .filter-item {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .filter-item:hover {
+        background-color: #D3D3D3;
+        border-radius: 5px;
+    }
+
+    .nav-link:hover {
+        background-color: #D3D3D3;
+        border-radius: 5px;
+    }
+.subfiltros {
+    list-style-type: disc; /* Asegura que haya puntos */
+    list-style-position: inside; /* Coloca los puntos dentro del contenido */
+    padding-left: 20px; /* Mantiene espacio para los puntos */
+    text-align: left; /* Asegura alineación correcta */
+}
+.subfiltros li {
+    display: flex; /* Permite alinear el punto y el enlace en la misma línea */
+    align-items: center; /* Alinea verticalmente el punto con el texto */
+}
+
+.subfiltros li a {
+    text-decoration: none;
+    color: #000;
+    display: inline-block; /* Asegura que el texto quede alineado con los puntos */
+    padding-left: 5px; /* Espacio entre el punto y el texto */
+}
+</style>
