@@ -1,0 +1,64 @@
+.custom-navbar {
+    border-bottom-right-radius: 100px; 
+    border-bottom-left-radius: 100px;
+    
+}
+.tarjeta {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 
+                0px 8px 20px rgba(0, 0, 0, 0.15), 
+                0px 12px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.tarjeta:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3), 
+                0px 12px 25px rgba(0, 0, 0, 0.2), 
+                0px 16px 35px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* botón de tarjeta */
+.btn-detalles {
+    background-color: #007bff; 
+    border-color: #007bff;
+    transition: background-color 0.5s, transform 0.1s;
+}
+.btn-detalles:active {
+    transform: scale(0.95);
+}
+
+
+/*Botón de contactar*/
+.boton-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: #007bff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.boton-flotante:hover {
+    transform: scale(1.1);
+}
+.boton-flotante::after {
+    content: "¿A quién deseas contactar?";
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+}
+.boton-flotante:hover::after {
+    opacity: 1;
+}
+
+
