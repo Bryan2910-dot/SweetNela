@@ -4,27 +4,27 @@
     ViewData["Title"] = "Contacto";
 }
 
-<h1>Contacto</h1>
+<h1 style="color: #D9D9D9">Contacto</h1>
 
 <form method="post" asp-action="RegistrarContacto">
     <div class="form-group mt-2"> 
-        <label asp-for="Nombres">Nombres:</label>
+        <label asp-for="Nombres" style="color: #D9D9D9">Nombres:</label>
         <input type="text" class="form-control" asp-for="Nombres">
         <span class="text-danger" asp-validation-for="Nombres"></span>
     </div>
 
     <div class="form-group mt-2"> 
-        <label asp-for="Email">Correo electrónico:</label>
+        <label asp-for="Email" style="color: #D9D9D9">Correo electrónico:</label>
         <input type="email" class="form-control" asp-for="Email" readonly="@(!string.IsNullOrEmpty(Model.Email))">
         <span class="text-danger" asp-validation-for="Email"></span>
     </div>
     <div class="form-group mt-2"> 
-        <label asp-for="Telefono">Teléfono:</label>
+        <label asp-for="Telefono" style="color: #D9D9D9">Teléfono:</label>
         <input type="text" class="form-control" asp-for="Telefono" readonly="@(!string.IsNullOrEmpty(Model.Telefono))">
         <span class="text-danger" asp-validation-for="Telefono"></span>
     </div>
     <div class="form-group mt-2"> 
-        <label asp-for="Mensaje">¿En qué podemos ayudarte?</label>
+        <label asp-for="Mensaje" style="color: #D9D9D9">¿En qué podemos ayudarte?</label>
         <textarea class="form-control" asp-for="Mensaje"></textarea>
         <span class="text-danger" asp-validation-for="Mensaje"></span>
     </div>
@@ -40,8 +40,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
     </div>
 }
-<br><br><br>
-<div class="form-group mt-2"> 
+<br><br>
+<div class="form-group" style="color: #D9D9D9"> 
         <p>Nuestro horario de atención es de:</p>
         <p>Lunes a Viernes de 8:00 a 18:00</p>
 </div>
