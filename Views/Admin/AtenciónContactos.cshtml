@@ -18,15 +18,15 @@
         <div class="row " style="height: 100vh;">
             <div class="col-2 col-sm-3 col-xl-2 bg-dark custom-navbar">
                 <div class="container">
-                    <nav class="navbar bg-dark border-bottom border-white mb-3" data-bs-theme="dark">
+                    <nav class="navbar border-bottom border-white mb-3" style="background-color: transparent !important;"data-bs-theme="dark">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="#">
+                            <a class="navbar-brand" href="/Home/Index">
                                 <i class="bi bi-house-door"></i><span class="d-none d-sm-inline ms-2">SweetNela</span>
                             </a>
                         </div>
                     </nav>
                     
-                    <nav class="nav flex-column ">
+                    <nav class="nav flex-column">
                         <a class="nav-link text-white" style="white-space:nowrap" href="/Admin/Index">
                             <i class="bi bi-inbox"></i><span class="d-none d-sm-inline ms-2">Atención de Orden</span>
                         </a>
@@ -37,7 +37,7 @@
                             <i class="bi bi-person-square"></i><span class="d-none d-sm-inline ms-2">Nombre del Admin</span>
                         </a>
                         <a class="nav-link text-white" style="white-space:nowrap" href="#" onclick="confirmLogout(event)">
-                            <i class="bi bi-arrow-bar-right me-2"></i><span class="d-none d-sm-inline ms-2">Log in</span>
+                            <i class="bi bi-arrow-bar-right me-2"></i><span class="d-none d-sm-inline ms-2">Log out</span>
                         </a>
                     </nav>
                 </div>
@@ -48,6 +48,7 @@
                 <header>
                     <h1 class="text-center mb-3">Atención de Contactos</h1>
                 </header>
+                
                 <!--Botón de escribir-->
                 <div class="boton-flotante">
                     <i class="bi bi-plus-circle-fill"></i>
@@ -57,9 +58,9 @@
                     <div class="row row-cols-1 row-cols-md-3 g-5 p-0 m-0">
                        <!-- Tarjeta -->
                         <div class="col">
-                            <div class="card h-100 tarjeta bg-white">
+                            <div class="card h-100 tarjeta">
                                 <div class="card-body">
-                                    <h5 class="card-title border-bottom border-grey">UN NUEVO MENSAJE DE:</h5>
+                                    <h5 class="card-title border-bottom border-black">UN NUEVO MENSAJE DE:</h5>
                                     <p class="card-text">Correo electrónico</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <i class="bi bi-eye-slash text-secondary fs-5 icono-ojo"></i>
@@ -70,9 +71,9 @@
                         </div>
                         <!-- Tarjeta -->
                         <div class="col">
-                            <div class="card h-100 tarjeta bg-white">
+                            <div class="card h-100 tarjeta">
                                 <div class="card-body">
-                                    <h5 class="card-title border-bottom border-grey">UN NUEVO MENSAJE DE:</h5>
+                                    <h5 class="card-title border-bottom border-black">UN NUEVO MENSAJE DE:</h5>
                                     <p class="card-text">Correo electrónico</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <i class="bi bi-eye-slash text-secondary fs-5 icono-ojo"></i>
@@ -95,7 +96,7 @@
     <script>
         function confirmLogout(event) {
             event.preventDefault();
-            const userConfirmed = confirm("¿Estas seguro(a) que quieres salir?");
+            const userConfirmed = confirm("¿Estas seguro(a) que quieres cerrar sesión de Administrador?");
             if (userConfirmed) {
                 window.location.href = "/Home/Index";
             }
@@ -105,13 +106,13 @@
     <script>
         document.querySelectorAll('.btn-detalles').forEach(boton => {
             boton.addEventListener('click', function(event) {
-                event.preventDefault(); // Evita que el enlace recargue la página
+                event.preventDefault();
 
                 let icono = this.closest('.card-body').querySelector('.icono-ojo');
 
                 if (icono.classList.contains('bi-eye-slash')) {
                     icono.classList.remove('bi-eye-slash', 'text-secondary');
-                    icono.classList.add('bi-eye', 'text-primary'); // Cambia a azul
+                    icono.classList.add('bi-eye', 'text-primary');
                 }
             });
         });

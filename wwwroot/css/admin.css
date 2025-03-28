@@ -1,9 +1,17 @@
-.custom-navbar {
-    border-bottom-right-radius: 100px; 
-    border-bottom-left-radius: 100px;
-    
+body{
+    background-color: #641535 !important;
 }
+.custom-navbar {
+    background-color: #201B1B !important;
+}
+header {
+    color: #201B1B;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
 .tarjeta {
+    background-color: #D9D9D9 !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 
                 0px 8px 20px rgba(0, 0, 0, 0.15), 
                 0px 12px 30px rgba(0, 0, 0, 0.1);
@@ -60,5 +68,3 @@
 .boton-flotante:hover::after {
     opacity: 1;
 }
-
-
