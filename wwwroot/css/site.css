@@ -16,7 +16,13 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+footer{
+  background-color: #201B1B;
+}
 body {
+  background-color: #641535;
   margin-bottom: 60px;
+}
+.nav-text{
+  color:#D9D9D9 !important;
 }
