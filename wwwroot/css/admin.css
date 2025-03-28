@@ -3,8 +3,10 @@ body{
 }
 .custom-navbar {
     background-color: #201B1B !important;
+    
 }
 header {
+    margin-top: 20px;
     color: #201B1B;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
