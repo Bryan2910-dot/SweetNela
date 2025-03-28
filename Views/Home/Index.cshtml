@@ -2,11 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 <!--  parte inicial -->
+  <body>
       <section class="hero-section">
         <div class="section-content">
           <div class="hero-details">
@@ -98,7 +95,7 @@
             <div class="slider-wrapper">
               <ul class="testimonials-list swiper-wrapper">
                 <li class="testimonial swiper-slide">
-                  <img src="images/user-1.jpg" alt="User" class="user-image" />
+                  <img src="~/imagenes/cabroportada.jpg" asp-append-version="true" alt="Descripción" class="user-image"/>
                   <h3 class="name">bryan valdivia </h3>
                   <i class="feedback">"amo los pasteles me encanta el diseño y la personalizacion"</i>
                 </li>
@@ -198,3 +195,4 @@
           </form>
         </div>
       </section>
+      </body>

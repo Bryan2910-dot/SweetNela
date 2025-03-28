@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TBFzKU+LnGAKmvTtLXD2iIaWtu5EjY/6eoFNxFpjLig=",
+  "Hash": "fmI59yqu+WiG4m7tedcs0G3kfk3rkJ8SeQf/YfTX0yE=",
   "Source": "SweetNela",
   "BasePath": "_content/SweetNela",
   "Mode": "Default",
@@ -1364,6 +1364,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\6.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Palacios\\Desktop\\SWEETNELA2\\SweetNela\\wwwroot\\imagenes\\cabroportada.jpg",
+      "SourceId": "SweetNela",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Palacios\\Desktop\\SWEETNELA2\\SweetNela\\wwwroot\\",
+      "BasePath": "_content/SweetNela",
+      "RelativePath": "imagenes/cabroportada.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\cabroportada.jpg"
     },
     {
       "Identity": "C:\\Users\\Palacios\\Desktop\\SWEETNELA2\\SweetNela\\wwwroot\\imagenes\\cakecalendar.jpeg",
