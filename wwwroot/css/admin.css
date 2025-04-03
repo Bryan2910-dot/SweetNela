@@ -5,18 +5,17 @@ body{
     background-color: #201B1B !important;
     
 }
-.mt-auto {
-    margin-top: auto;
-    padding-bottom: 60px; /* Espacio para que no toque el fondo */
-  }
-  
-  .nav-link {
+.nav-link {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-  }
-  
+}
+.mt-auto {
+    margin-top: auto;
+    padding-bottom: 50px;
+}
+
   
 header {
     margin-top: 20px;
