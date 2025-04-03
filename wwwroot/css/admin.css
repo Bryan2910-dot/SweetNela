@@ -5,26 +5,6 @@ body{
     background-color: #201B1B !important;
     
 }
-.mt-auto {
-    margin-top: auto;
-    padding-bottom: 60px; /* Espacio para que no toque el fondo */
-  }
-  
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-  }
-  
-  
-header {
-    margin-top: 20px;
-    color: #201B1B;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-
 .tarjeta {
     background-color: #D9D9D9 !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 
