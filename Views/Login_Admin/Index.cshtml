@@ -1,7 +1,44 @@
+@model SweetNela.Models.Login_Admin
+
 @{
     Layout = null;
     ViewData["Title"] = "Login_Admin";
 }
-<div class="text-center">
-    <h1>Welcome</h1>
-</div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/login_admin.css">
+    <title>Bienvenido Administrador</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Bienvenido Administrador</header>
+        </div>
+
+        <form method="post" asp-action="Login" asp-controller="Login_Admin">
+            <div class="input-box">
+                <input asp-for="AdminNombre" class="input-field" placeholder="Nombre" autocomplete="off">
+                <span class="text-danger" asp-validation-for="AdminNombre"></span>
+            </div>
+
+            <div class="input-box">
+                <input asp-for="AdminContra" type="password" class="input-field" placeholder="Contraseña" autocomplete="off">
+                <span class="text-danger" asp-validation-for="AdminContra"></span>
+            </div>
+
+            <div class="input-submit">
+                <button type="submit" class="submit-btn">Log in</button>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>
