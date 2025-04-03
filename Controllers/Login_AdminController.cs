@@ -8,20 +8,16 @@ using Microsoft.Extensions.Logging;
 
 namespace SweetNela.Controllers
 {
-    public class AdminController : Controller
+    public class Login_AdminController : Controller
     {
-        private readonly ILogger<AdminController> _logger;
+        private readonly ILogger<Login_AdminController> _logger;
 
-        public AdminController(ILogger<AdminController> logger)
+        public Login_AdminController(ILogger<Login_AdminController> logger)
         {
             _logger = logger;
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult AtenciónContactos()
         {
             return View();
         }
