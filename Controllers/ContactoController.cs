@@ -5,21 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Sweetnela.Models;
+using SweetNela.Models;
 using Microsoft.AspNetCore.Identity;
+using SweetNela.Data;
 
-namespace Sweetnela.Controllers
+namespace SweetNela.Controllers
 {
     public class ContactoController : Controller
     {
         private readonly ILogger<ContactoController> _logger;
+        private readonly ApplicationDbContext _context;
+
+
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ContactoController(ILogger<ContactoController> logger, UserManager<IdentityUser> userManager)
-        {
-            _logger = logger;
-            _userManager = userManager;
-        }
+        public ContactoController(ILogger<ContactoController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+    {
+    _logger = logger;
+    _userManager = userManager;
+    _context = context;
+}
+
 
         public async Task<IActionResult> Index()
 {
@@ -44,6 +50,9 @@ namespace Sweetnela.Controllers
             if (ModelState.IsValid)
             {
                 contacto.Respuesta = "Datos correctamente enviados"; 
+                _context.DbSetContacto.Add(contacto);
+                _context.SaveChanges();
+                _logger.LogInformation("Registrado su contacto");
                 return View("Index", contacto); 
             }
             else
