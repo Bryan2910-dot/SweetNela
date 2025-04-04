@@ -17,64 +17,67 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SweetNela
 build_property.RootNamespace = SweetNela
-build_property.ProjectDir = D:\BRYAN\clases\PROGRAMACION 1\SweetNela3\SweetNela\
+build_property.ProjectDir = D:\BRYAN\clases\PROGRAMACION 1\SweetNela\SweetNela\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\BRYAN\clases\PROGRAMACION 1\SweetNela3\SweetNela
+build_property.MSBuildProjectDirectory = D:\BRYAN\clases\PROGRAMACION 1\SweetNela\SweetNela
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Admin/AtenciónContactos.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Admin/AtenciónContactos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXRlbmNpw7NuQ29udGFjdG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Admin/Index.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Catalogo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Contacto/Index.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Contacto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Home/Index.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Home/Privacy.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Pedido/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Login_Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5fQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Shared/Error.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Shared/_LoginPartial.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/_ViewImports.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/_ViewStart.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BRYAN/clases/PROGRAMACION 1/SweetNela3/SweetNela/Views/Shared/_Layout.cshtml]
+[D:/BRYAN/clases/PROGRAMACION 1/SweetNela/SweetNela/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-t1v73nqdo3
