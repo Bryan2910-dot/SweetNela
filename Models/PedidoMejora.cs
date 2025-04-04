@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SweetNela.Models
 {
+    [Table("t_PedidoMejora")]
     public class PedidoMejora
     {
-         public String? Sabor { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public Double SumaTotal { get; set; } // Nueva propiedad para almacenar la suma total
+        public String? Sabor { get; set; }
         public String? Tamaño { get; set; }
         public String? Relleno { get; set; }
         public String? Detalles { get; set; }
