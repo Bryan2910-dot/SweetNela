@@ -6,6 +6,78 @@
   --light-pink-color: #faf4f5;
   --medium-gray-color: #ccc;
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f0f0;
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  height: 96vh; /* Reducido el alto */
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto; /* Agregado scroll si es necesario */
+}
+.sidebar h2 {
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul li:hover {
+  background-color: #333;
+}
+.admin-section {
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
+}
+.admin-section p {
+  display: flex;
+  align-items: center;
+}
+.logout {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+.logout:hover {
+  background-color: #333;
+}
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  flex-grow: 1;
+  margin-left: 220px; /* Ajustado para mantener separación adecuada */
+}
+
+.tamano-container {
+  display: flex;
+  gap: 15px; /* Espaciado entre los elementos */
+  align-items: center;
+}
+
+.tamano-container input {
+  margin-right: 5px; /* Espacio entre el checkbox y su etiqueta */
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -19,21 +91,27 @@ body {
 
 .form-container {
   background: var(--white-color);
-  padding: 20px;
+  padding: 30px; /* Más espacio interno */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
+  width: 650px; /* Aumentado el ancho del cuadro de pedidos */
+  margin-top: 70px; /* Ajusta el valor según sea necesario */
 }
-
 h2 {
   text-align: center;
   color: var(--primary-color);
 }
 
-.form-group {
-  margin-bottom: 15px;
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* Espacio entre columnas */
 }
 
+.form-group {
+  flex: 1; /* Hace que cada columna tenga el mismo ancho */
+  min-width: 180px; /* Evita que los campos sean demasiado pequeños */
+}
 label {
   font-weight: bold;
   display: block;
@@ -56,8 +134,8 @@ label {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 20px; /* Agrega espacio arriba del botón */
 }
-
 .btn-primary:hover {
   background-color: var(--secondary-color);
 }
