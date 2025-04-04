@@ -11,7 +11,7 @@ using SweetNela.Data;
 namespace SweetNela.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250404061952_PedidoMejoraMigracion")]
+    [Migration("20250404062928_PedidoMejoraMigracion")]
     partial class PedidoMejoraMigracion
     {
         /// <inheritdoc />

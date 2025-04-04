@@ -10,7 +10,7 @@ namespace SweetNela.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-                migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "t_PedidoMejora",
                 columns: table => new
                 {
@@ -36,6 +36,6 @@ namespace SweetNela.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "t_PedidoMejora");
-        }
+        }
     }
 }
