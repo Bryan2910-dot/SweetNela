@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations; // Add this namespace for validation
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Sweetnela.Models
+namespace SweetNela.Models
 {
+    [Table("t_contacto")]
     public class Contacto
     {
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Debe llenar este campo")]
         public string? Nombres { get; set; }
 
@@ -21,7 +28,7 @@ namespace Sweetnela.Models
 
         [Required(ErrorMessage = "Debe llenar este campo")]
         public string? Mensaje { get; set; }
-        
+
         public string? Respuesta { get; set; }
     }
 }
