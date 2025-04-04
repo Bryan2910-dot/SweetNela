@@ -6973,11 +6973,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela\\SweetNela\\SweetNela.csproj",
+      "projectUniqueName": "D:\\BRYAN\\clases\\PROGRAMACION 1\\otra prueba\\SweetNela\\SweetNela.csproj",
       "projectName": "SweetNela",
-      "projectPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela\\SweetNela\\SweetNela.csproj",
+      "projectPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\otra prueba\\SweetNela\\SweetNela.csproj",
       "packagesPath": "C:\\Users\\HOME\\.nuget\\packages\\",
-      "outputPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela\\SweetNela\\obj\\",
+      "outputPath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\otra prueba\\SweetNela\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HOME\\AppData\\Roaming\\NuGet\\NuGet.Config"

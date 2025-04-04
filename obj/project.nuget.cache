@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rTnAWYSmYoE=",
+  "dgSpecHash": "UNT+0fPM1NU=",
   "success": true,
-  "projectFilePath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela\\SweetNela\\SweetNela.csproj",
+  "projectFilePath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\otra prueba\\SweetNela\\SweetNela.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HOME\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\HOME\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

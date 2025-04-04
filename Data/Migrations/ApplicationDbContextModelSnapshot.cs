@@ -212,6 +212,36 @@ namespace SweetNela.Data.Migrations
 
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
+                
+            modelBuilder.Entity("SweetNela.Models.Contacto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Mensaje")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombres")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Respuesta")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_contacto");
+                });
 
             modelBuilder.Entity("SweetNela.Models.PedidoMejora", b =>
                 {
