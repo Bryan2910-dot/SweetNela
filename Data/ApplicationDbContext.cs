@@ -14,5 +14,7 @@ namespace SweetNela.Data
         public DbSet<Contacto> DbSetContacto { get; set; }
 
     }
+    public DbSet<PedidoMejora> DbSetPedidoMejora { get; set; }
+
 }
 
