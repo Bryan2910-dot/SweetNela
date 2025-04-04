@@ -16,31 +16,37 @@
 
     <div class="container-fluid">
         <div class="row " style="height: 100vh;">
-            <div class="col-2 col-sm-3 col-xl-2 bg-dark custom-navbar">
-                <div class="container">
-                    <nav class="navbar border-bottom border-white mb-3" style="background-color: transparent !important;"data-bs-theme="dark">
+            <div class="col-2 col-sm-3 col-xl-2 bg-dark custom-navbar d-flex flex-column">
+                <div class="container d-flex flex-column flex-grow-1">
+                    <!-- NAVBAR SUPERIOR -->
+                    <nav class="navbar border-bottom border-white mb-3" style="background-color: transparent !important;" data-bs-theme="dark">
                         <div class="container-fluid">
                             <a class="navbar-brand" href="/Home/Index">
                                 <i class="bi bi-house-door"></i><span class="d-none d-sm-inline ms-2">SweetNela</span>
                             </a>
                         </div>
                     </nav>
-                    
-                    <nav class="nav flex-column">
+
+                    <!-- NAV PRINCIPAL -->
+                    <nav class="nav flex-column flex-grow-1">
                         <a class="nav-link text-white" style="white-space:nowrap" href="/Admin/Index">
                             <i class="bi bi-inbox"></i><span class="d-none d-sm-inline ms-2">Atención de Orden</span>
                         </a>
-                        <a class="nav-link text-white" style="white-space:nowrap" href="/Admin/AtenciónContactos">
+                        <a class="nav-link text-white" style="white-space:nowrap; color: blue !important;" href="/Admin/AtenciónContactos">
                             <i class="bi bi-person-lines-fill"></i><span class="d-none d-sm-inline ms-2">Atención de Contactos</span>
                         </a>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        <a class="nav-link text-white border-white" style="white-space:nowrap" href="#">
-                            <i class="bi bi-person-square"></i><span class="d-none d-sm-inline ms-2">Nombre del Admin</span>
-                        </a>
-                        <a class="nav-link text-white" style="white-space:nowrap" href="#" onclick="confirmLogout(event)">
-                            <i class="bi bi-arrow-bar-right me-2"></i><span class="d-none d-sm-inline ms-2">Log out</span>
-                        </a>
                     </nav>
+
+                    <!-- FOOTER (ADMIN & LOGOUT)-->
+                    <div class="mt-auto d-flex flex-column">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-person-square"></i><span class="d-none d-sm-inline">Nombre del Admin</span>
+                        </a>
+                        <a class="nav-link text-white" href="#" onclick="confirmLogout(event)">
+                            <i class="bi bi-arrow-bar-right"></i><span class="d-none d-sm-inline">Log out</span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
 

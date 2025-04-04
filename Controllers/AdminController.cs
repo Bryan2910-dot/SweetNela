@@ -23,7 +23,7 @@ namespace SweetNela.Controllers
         }
         public IActionResult AtenciónContactos()
         {
-        return View();
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
