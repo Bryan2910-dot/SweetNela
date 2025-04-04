@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using SweetNela.Models;
 
-namespace SweetNela.Data
-{
+namespace SweetNela.Data;
+
     public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -14,5 +14,4 @@ namespace SweetNela.Data
         public DbSet<Contacto> DbSetContacto { get; set; }
 
     }
-}
 
