@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SweetNela.Models;
 
-namespace SweetNela.Data;
+namespace SweetNela.Data{
 
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -15,6 +15,6 @@ namespace SweetNela.Data;
 
     }
     
-
+}
 
 
