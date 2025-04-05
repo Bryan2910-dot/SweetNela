@@ -26,6 +26,10 @@ namespace SweetNela.Controllers
         {
             return View();
         }
+        public IActionResult Carrito()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult PedidoMejora(PedidoMejora calc1)
         {
