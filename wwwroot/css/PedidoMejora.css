@@ -1,149 +1,180 @@
 :root {
-    --white-color: #fff;
-    --dark-color: #252525;
-    --primary-color: #3b141c;
-    --secondary-color: #f3961c;
-    --light-pink-color: #faf4f5;
-    --medium-gray-color: #ccc;
-  }
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f0f0;
-    display: flex;
-  }
-  .sidebar {
-    width: 250px;
-    height: 96vh; /* Reducido el alto */
-    background-color: #1a1a1a;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto; /* Agregado scroll si es necesario */
-  }
-  .sidebar h2 {
-    margin: 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
-    display: flex;
-    align-items: center;
-  }
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  .sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-  .sidebar ul li:hover {
-    background-color: #333;
-  }
-  .admin-section {
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
-  }
-  .admin-section p {
-    display: flex;
-    align-items: center;
-  }
-  .logout {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-  }
-  .logout:hover {
-    background-color: #333;
-  }
-  .content {
-    margin-left: 270px;
-    padding: 20px;
-    flex-grow: 1;
-    margin-left: 220px; /* Ajustado para mantener separación adecuada */
-  }
-  
-  .tamano-container {
-    display: flex;
-    gap: 15px; /* Espaciado entre los elementos */
-    align-items: center;
-  }
-  
-  .tamano-container input {
-    margin-right: 5px; /* Espacio entre el checkbox y su etiqueta */
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--light-pink-color);
-    color: var(--dark-color);
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .form-container {
-    background: var(--white-color);
-    padding: 30px; /* Más espacio interno */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 650px; /* Aumentado el ancho del cuadro de pedidos */
-    margin-top: 70px; /* Ajusta el valor según sea necesario */
-  }
-  h2 {
-    text-align: center;
-    color: var(--primary-color);
-  }
-  
-  .form-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px; /* Espacio entre columnas */
-  }
-  
-  .form-group {
-    flex: 1; /* Hace que cada columna tenga el mismo ancho */
-    min-width: 180px; /* Evita que los campos sean demasiado pequeños */
-  }
-  label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--medium-gray-color);
-    border-radius: 5px;
-    background-color: var(--white-color);
-  }
-  
-  .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px; /* Agrega espacio arriba del botón */
-  }
-  .btn-primary:hover {
-    background-color: var(--secondary-color);
-  }
-  
-  .result {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--primary-color);
-  }
+  --white-color: #fff;
+  --dark-color: #252525;
+  --primary-color: #3b141c;
+  --secondary-color: #f3961c;
+  --light-pink-color: #faf4f5;
+  --medium-gray-color: #ccc;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f0f0;
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  height: 96vh; /* Reducido el alto */
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto; /* Agregado scroll si es necesario */
+}
+.sidebar h2 {
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul li:hover {
+  background-color: #333;
+}
+.admin-section {
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
+}
+.admin-section p {
+  display: flex;
+  align-items: center;
+}
+.logout {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+.logout:hover {
+  background-color: #333;
+}
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  flex-grow: 1;
+  margin-left: 220px; /* Ajustado para mantener separación adecuada */
+}
+
+.tamano-container {
+  display: flex;
+  gap: 15px; /* Espaciado entre los elementos */
+  align-items: center;
+}
+
+.tamano-container input {
+  margin-right: 5px; /* Espacio entre el checkbox y su etiqueta */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--light-pink-color);
+  color: var(--dark-color);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  background: var(--white-color);
+  padding: 30px; /* Más espacio interno */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 650px; /* Aumentado el ancho del cuadro de pedidos */
+  margin-top: 70px; /* Ajusta el valor según sea necesario */
+}
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* Espacio entre columnas */
+}
+
+.form-group {
+  flex: 1; /* Hace que cada columna tenga el mismo ancho */
+  min-width: 180px; /* Evita que los campos sean demasiado pequeños */
+}
+label {
+  font-weight: bold;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--medium-gray-color);
+  border-radius: 5px;
+  background-color: var(--white-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px; /* Agrega espacio arriba del botón */
+}
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.tamano-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tamano-opcion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sabor-opcion {
+border: 2px solid transparent;
+padding: 10px;
+background-color: white;
+cursor: pointer;
+text-align: center;
+transition: all 0.3s;
+}
+
+.sabor-opcion img {
+display: block;
+margin: 0 auto;
+border-radius: 5px;
+}
+
+.sabor-opcion.seleccionado {
+border: 2px solid #d9534f; /* Color rojo para indicar selección */
+}
