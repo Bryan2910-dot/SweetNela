@@ -12,40 +12,64 @@
 </head>
 <body>
 <div class="sidebar">
-        <h2>🏠 SweetNela</h2>
-        <ul>
-            <li>📦 Pedido</li>
-            <li>👥 carrito</li>
-        </ul>
-        <div class="admin-section">
-            <p>👤 Nombre del Admin</p>
-            <a href="#" class="logout">➡️ Log out</a>
-        </div>
+    <h2>🏠 SweetNela</h2>
+    <ul>
+        
+        <li><a href="/PedidoMejora/Carrito" class="nav-link">🛒 Carrito</a></li> <!-- Nuevo apartado -->
+        <li><a >📝 Pedido</a></li>  <!-- Nuevo apartado -->
+    </ul>
+    <div class="admin-section">
+        <p>👤 Nombre del Admin</p>
+        <a href="/Logout" class="logout">➡️ Log out</a>
+
     </div>
+</div>
     <div class="form-container">
         <h2>Realizar Pedido</h2>
         <form method="post" asp-action="PedidoMejora">
             <div class="form-row">
                         <div class="form-group">
-                            <label for="sabor">Sabor</label>
-                            <select class="form-control" id="sabor" name="Sabor" required>
-                                <option value="Chocolate">Chocolate +</option>
-                                <option value="Vainilla">Vainilla -</option>
-                                <option value="Keke ingles">Keke inglés</option>
-                                <option value="Red Velvet">Red Velvet</option>
-                            </select>
-                        </div>
+    <label for="sabor">Sabor</label>
+    <div id="sabor-container">
+        <button type="button" class="sabor-opcion" onclick="seleccionarSabor('Chocolate')">
+            <img src="~/imagenes/CHOCOLATE.jpeg" alt="Chocolate" width="100"><br>
+            Chocolate
+        </button>
+        <button type="button" class="sabor-opcion" onclick="seleccionarSabor('Vainilla')">
+            <img src="~/imagenes/VAINILLA.jpg" alt="Vainilla" width="100"><br>
+            Vainilla
+        </button>
+        <button type="button" class="sabor-opcion" onclick="seleccionarSabor('Keke ingles')">
+            <img src="~/imagenes/INGLES.jpg" alt="Keke Inglés" width="100"><br>
+            Keke Inglés
+        </button>
+        <button type="button" class="sabor-opcion" onclick="seleccionarSabor('Red Velvet')">
+            <img src="~/imagenes/red velvey.png" alt="Red Velvet" width="100"><br>
+            Red Velvet
+        </button>
+    </div>
+    <input type="hidden" id="sabor" name="Sabor" required>
+</div>
                         <div class="form-group">
                             <label for="tamaño">Tamaño</label>
                             <div id="tamaño" class="tamano-container">
-                                <input type="checkbox" id="pequeño" name="Tamaño" value="Pequeño" />
-                                <label for="pequeño">Pequeño</label>
+                                <div class="tamano-opcion">
+                                    <input type="checkbox" id="pequeño" name="Tamaño" value="Pequeño" />
+                                    <label for="pequeño">MEDIANO</label>
+                                    <img src="~/imagenes/mediano.jpeg" alt="Tamaño Pequeño" width="100">
+                                </div>
 
-                                <input type="checkbox" id="mediano" name="Tamaño" value="Mediano" />
-                                <label for="mediano">Mediano</label>
+                                <div class="tamano-opcion">
+                                    <input type="checkbox" id="mediano" name="Tamaño" value="Mediano" />
+                                    <label for="mediano">GRANDE</label>
+                                    <img src="~/imagenes/grande.jpeg" alt="Tamaño Pequeño" width="100">
+                                </div>
 
-                                <input type="checkbox" id="grande" name="Tamaño" value="Grande" />
-                                <label for="grande">Grande</label>
+                                <div class="tamano-opcion">
+                                    <input type="checkbox" id="grande" name="Tamaño" value="Grande" />
+                                    <label for="grande">EXTRA GRANDE</label>
+                                    <img src="~/imagenes/mega grande.jpeg" alt="Tamaño Pequeño" width="100">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,5 +115,6 @@
             <p>@ViewData["Resultado"]</p>
         </div>
     </div>
+    <script src="~/js/pedidoMejora.js" asp-append-version="true"></script>
 </body>
 </html>
