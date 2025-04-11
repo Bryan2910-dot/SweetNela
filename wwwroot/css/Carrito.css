@@ -201,3 +201,18 @@
       text-decoration: none;
       color: var(--primary-color);
   }
+
+  .estrellas {
+    color: #ccc;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.estrellas .estrella:hover,
+.estrellas .estrella:hover ~ .estrella {
+    color: #ffc107; /* Amarillo al pasar el mouse */
+}
+
+.estrellas .estrella.seleccionada {
+    color: #ffc107;
+}
