@@ -8,15 +8,25 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
   position: relative;
   min-height: 100%;
 }
-
+footer {
+  background-color: #201b1b;
+}
 body {
+  background-color: #641535;
   margin-bottom: 60px;
+}
+.nav-text {
+  color: #d9d9d9 !important;
 }

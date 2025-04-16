@@ -1,0 +1,213 @@
+﻿@{
+    ViewData["Title"] = "Catalogo";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="container-fluid">
+    <div class="sidebar-mobile d-md-none">
+        <button class="btn w-100" style="background-color:rgb(250, 250, 238); color: #000;" type="button" data-bs-toggle="collapse" data-bs-target="#mobileFilters" aria-expanded="false" aria-controls="mobileFilters">
+            Filtros <i class="fa-solid fa-filter ms-2"></i>
+        </button>
+        <div class="collapse" id="mobileFilters">
+            <div class="bg-light p-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#saboresSubfiltros" style="color: #000;">Sabores</a>
+                        <ul id="saboresSubfiltros" class="collapse subfiltros">
+                            <li><a href="#" class="d-block py-1 filter-item">Chocolate</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Vainilla</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Fresa</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#tamanosSubfiltros" style="color: #000;">Tamaños</a>
+                        <ul id="tamanosSubfiltros" class="collapse subfiltros">
+                            <li><a href="#" class="d-block py-1 filter-item">Personal</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Mediano</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Grande</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#modelosSubfiltros" style="color: #000;">Modelos</a>
+                        <ul id="modelosSubfiltros" class="collapse subfiltros">
+                            <li><a href="#" class="d-block py-1 filter-item">Hora de Aventura</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Un Show Más</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Clarence</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">One Piece</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">Shawn Mendes</a></li>
+                            <li><a href="#" class="d-block py-1 filter-item">1D</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 d-none d-md-block">
+            <div class="sidebar vh-100 position-sticky top-0 d-flex flex-column" 
+                 style="background-color:rgb(250, 250, 238); color: #000;">
+                <div class="d-flex justify-content-center align-items-center p-3">
+                    <h4 class="m-0">Filtros</h4>
+                    <i class="fa-solid fa-filter ms-2 p-2" style="color: black; background-color: white; border-radius: 5px;"></i>
+                </div>
+                <hr style="border: 8px solid #ccc; margin: 0;">
+                <div class="flex-grow-1" style="max-height: 60vh; overflow-y: auto; padding: 0 10px;">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#saboresSubfiltros" style="color: #000;">Sabores</a>
+                            <ul id="saboresSubfiltros" class="collapse subfiltros">
+                                <li><a href="#" class="d-block py-1 filter-item">Chocolate</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Vainilla</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Fresa</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#tamanosSubfiltros" style="color: #000;">Tamaños</a>
+                            <ul id="tamanosSubfiltros" class="collapse subfiltros">
+                                <li><a href="#" class="d-block py-1 filter-item">Personal</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Mediano</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Grande</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#modelosSubfiltros" style="color: #000;">Modelos</a>
+                            <ul id="modelosSubfiltros" class="collapse subfiltros">
+                                <li><a href="#" class="d-block py-1 filter-item">Hora de Aventura</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Un Show Más</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Clarence</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">One Piece</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">Shawn Mendes</a></li>
+                                <li><a href="#" class="d-block py-1 filter-item">1D</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Catálogo</h2>
+                <i class="fa-solid fa-cart-shopping fs-3"></i>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/capyCake.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Capybara Cake</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/harryCake.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Cake H Styles</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/nanaCake.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Nana Cake</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/stichCake.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Stich Cake</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/vintageAzul.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Vintaje Blue Cake</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 text-center position-relative overflow-hidden">
+                        <div class="position-relative">
+                            <img src="~/imagenes/floral2p.png" class="card-img-top" alt="Producto 2">
+                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title m-0">Floral Cake 2 Pisos</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .filter-item {
+        color: #000;
+        text-decoration: none;
+    }
+    .filter-item:hover {
+        background-color: #D3D3D3;
+        border-radius: 5px;
+    }
+    .nav-link:hover {
+        background-color: #D3D3D3;
+        border-radius: 5px;
+    }
+    .subfiltros {
+        list-style-type: disc;
+        list-style-position: inside;
+        padding-left: 20px;
+        text-align: left;
+    }
+    .subfiltros li {
+        display: flex;
+        align-items: center;
+    }
+    .subfiltros li a {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        padding-left: 5px;
+    }
+    .sidebar-mobile {
+        margin-bottom: 20px;
+    }
+</style>
+
