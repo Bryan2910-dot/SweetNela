@@ -8,12 +8,15 @@
     Decimal montoTotal = @Model.montoTotal;
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-white">@ViewData["Title"]</h1>
 
 <a class="btn btn-primary" asp-controller="Pago" 
-        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a><p>Total S/. @montoTotal</p>
+        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>
 
-<table class="table">
+<br><br>
+        <p class="text-white">Total S/. @montoTotal</p>
+
+<table class="table bg-white border shadow-sm rounded">
     <thead>
         <tr>
             <th>

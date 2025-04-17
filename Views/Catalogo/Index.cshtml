@@ -99,14 +99,15 @@
                     <div class="card h-100 text-center position-relative overflow-hidden">
                         <div class="position-relative">
                             <img src="@item.ImageURL" class="card-img-top" alt="Producto 2">
-                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <i class="fa-solid fa-plus"></i>
+                            <button  class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <a asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">
+                                    <i class="fa-solid fa-plus text-white"></i>
+                                </a>
                             </button>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title m-0">@Html.DisplayFor(modelItem => item.Name)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
-                            <a class="btn btn-primary" asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">Añadir</a>
                             <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalle</a>
                         </div>
                     </div>

@@ -103,7 +103,7 @@ public class CarritoController : Controller
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Cantidad,Precio,UserID")] PreOrden itemCarrito)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Cantidad,Precio,UserName")] PreOrden itemCarrito)
         {
             if (id != itemCarrito.Id)
             {
