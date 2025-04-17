@@ -12,6 +12,9 @@ namespace SweetNela.Data{
         }
         public DbSet<PedidoMejora> DbSetPedidoMejora { get; set; }
         public DbSet<Contacto> DbSetContacto { get; set; }
+        public DbSet<Producto> DbSetProducto { get; set; }
+        public DbSet<PreOrden> DbSetPreOrden { get; set; }
+
 
     }
     
