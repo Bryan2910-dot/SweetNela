@@ -26,34 +26,42 @@ namespace SweetNela.Controllers
         {
             return View();
         }
-        public IActionResult Carrito()
-        {
-            return View();
-        }
+        
         [HttpPost]
-        public IActionResult PedidoMejora(PedidoMejora calc1)
+        public IActionResult PedidoMejora(PedidoMejora pedido)
         {
             if (ModelState.IsValid)
             {
                 string mensaje = "";
                 try
                 {
-                    
-                    // Llama a los tres métodos de cálculo del modelo Pedido
-                    var resultado1 = calc1.Calcular1();
-                    var resultado2 = calc1.Calcular2();
-                    var resultado3 = calc1.Calcular3();
+                    // Calcula los valores
+                    var resultado1 = pedido.Calcular1();
+                    var resultado2 = pedido.Calcular2();
+                    var resultado3 = pedido.Calcular3();
 
                     // Suma los resultados
-                    var sumaTotal = resultado1 + resultado2 + resultado3;
-                    // Asigna la suma total a la propiedad del modelo
-                    calc1.SumaTotal = sumaTotal;
-                    // Guarda el modelo en la base de datos
-                    _context.DbSetPedidoMejora.Add(calc1);
+                    pedido.SumaTotal = resultado1 + resultado2 + resultado3;
+
+                    // Guarda el pedido en la tabla PedidoMejora
+                    _context.DbSetPedidoMejora.Add(pedido);
+                    _context.SaveChanges();
+
+                    // Crea una nueva entrada para la tabla PreOrden
+                    var preOrden = new PreOrden
+                    {
+                        Precio = (decimal)pedido.SumaTotal, // Asigna SumaTotal al atributo Precio
+                        UserName = _userManager.GetUserName(User),          // Asigna el valor de Lugar al atributo UserName
+                        Cantidad = 1,                      // Puedes ajustar la cantidad según sea necesario
+                        Status = "PENDIENTE"               // Estado inicial
+                    };
+
+                    // Guarda en la tabla PreOrden
+                    _context.DbSetPreOrden.Add(preOrden);
                     _context.SaveChanges();
 
                     // Prepara el mensaje para mostrar en el HTML
-                    mensaje = $"El resultado de los cálculos es: {sumaTotal}";
+                    mensaje = $"El pedido se ha creado correctamente con un total de: {pedido.SumaTotal}";
                 }
                 catch (Exception ex)
                 {
@@ -68,9 +76,9 @@ namespace SweetNela.Controllers
             {
                 ViewData["Resultado"] = "Datos de entrada no válidos";
             }
+
             return View("Index");
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
