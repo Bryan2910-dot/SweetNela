@@ -1,28 +1,18 @@
-# Use the official .NET SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
-# Copy the project file and restore dependencies
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copy the rest of the application and build it
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Use the official ASP.NET Core runtime image for running the application
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-
-# Copy the build output from the previous stage
 COPY --from=build-env /app/out .
 
-# Set environment variables for Render
-ENV ASPNETCORE_URLS=http://+:8080
-ENV DOTNET_RUNNING_IN_CONTAINER=true
+#CAMBIAR AQUI EL NOMBRE DEL APLICATIVO
+#nombre de tu app busca en bin\Release**\netcore5.0\plantitas.exe
+ENV APP_NET_CORE SweetNela.dll 
 
-# Expose the port Render will use
-EXPOSE 8080
-
-# Set the entry point for the application
-CMD ["dotnet", "SweetNela.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet $APP_NET_CORE
