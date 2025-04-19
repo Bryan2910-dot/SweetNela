@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace SweetNela.Data.Migrations
+namespace SweetNela.Migrations
 {
     /// <inheritdoc />
-    public partial class ProductoMigracion : Migration
+    public partial class PostGressMigracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
