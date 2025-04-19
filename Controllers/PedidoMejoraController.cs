@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SweetNela.Data;
 using SweetNela.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SweetNela.Controllers
 {
@@ -15,11 +18,13 @@ namespace SweetNela.Controllers
     {
         private readonly ILogger<PedidoMejoraController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public PedidoMejoraController(ILogger<PedidoMejoraController> logger, ApplicationDbContext context)
+        public PedidoMejoraController(ILogger<PedidoMejoraController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
