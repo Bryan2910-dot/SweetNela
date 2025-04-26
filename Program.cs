@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using SweetNela.Data;
+using SweetNela.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
