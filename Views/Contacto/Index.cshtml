@@ -1,61 +1,59 @@
-@model SweetNela.Models.Contacto
+@model IEnumerable<SweetNela.Models.Contacto>
 
 @{
-    ViewData["Title"] = "Contacto";
+    ViewData["Title"] = "Index";
 }
 
-<h1 style="color: #D9D9D9; text-align:center">Contacto</h1>
+<h1>Index</h1>
 
-<form method="post" asp-action="RegistrarContacto" style="margin-left:50px; margin-right:50px" id="contactForm">
-    <div class="form-group mt-2"> 
-        <label asp-for="Nombres" style="color: #D9D9D9">Nombres:</label>
-        <input type="text" class="form-control" asp-for="Nombres" id="nombres">
-        <span class="text-danger" asp-validation-for="Nombres"></span>
-    </div>
-
-    <div class="form-group mt-2"> 
-        <label asp-for="Email" style="color: #D9D9D9">Correo electrónico:</label>
-        <input type="email" class="form-control" asp-for="Email" readonly="@(!string.IsNullOrEmpty(Model.Email))">
-        <span class="text-danger" asp-validation-for="Email"></span>
-    </div>
-    <div class="form-group mt-2"> 
-        <label asp-for="Telefono" style="color: #D9D9D9">Teléfono:</label>
-        <input type="text" class="form-control" asp-for="Telefono" readonly="@(!string.IsNullOrEmpty(Model.Telefono))">
-        <span class="text-danger" asp-validation-for="Telefono"></span>
-    </div>
-    <div class="form-group mt-2"> 
-        <label asp-for="Mensaje" style="color: #D9D9D9">¿En qué podemos ayudarte?</label>
-        <textarea class="form-control" asp-for="Mensaje" id="mensaje"></textarea>
-        <span class="text-danger" asp-validation-for="Mensaje"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-2" id="submitButton">Enviar</button>
-</form>
-
-@if (!string.IsNullOrEmpty(Model.Respuesta))
-{
-    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" style="margin-left:50px;margin-right:50px">
-        @Model.Respuesta
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-    </div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Respuesta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Respuesta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
 }
-<br><br><br>
-<div class="form-group" style="color: #D9D9D9;margin-left:50px"> 
-        <p>Nuestro horario de atención:</p>
-        <p>Lunes a Viernes de 8:00 a 18:00</p>
-</div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <script>
-        document.getElementById('submitButton').addEventListener('click', function(event) {
-            let mensaje = document.getElementById('mensaje').value;
-            let nombres = document.getElementById('nombres').value;
-            
-            if (mensaje.includes("Visión especial de los queques de contacto") && nombres === "SweetNela4dm1n") {
-                event.preventDefault();
-                window.location.href = '/Login_Admin/Index';
-            }
-        });
-    </script>
-}
+    </tbody>
+</table>

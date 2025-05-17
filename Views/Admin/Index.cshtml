@@ -39,11 +39,11 @@
 
                     <!-- FOOTER (ADMIN & LOGOUT)-->
                     <div class="mt-auto d-flex flex-column">
-                        <a class="nav-link text-white" href="#">
-                            <i class="bi bi-person-square"></i><span class="d-none d-sm-inline">Nombre del Admin</span>
+                        <a class="nav-link text-white" href="/Identity/Account/Manage">
+                            <i class="bi bi-person-square"></i><span class="d-none d-sm-inline">@User.Identity?.Name</span>
                         </a>
-                        <a class="nav-link text-white" href="#" onclick="confirmLogout(event)">
-                            <i class="bi bi-arrow-bar-right"></i><span class="d-none d-sm-inline">Log out</span>
+                        <a class="nav-link text-white" href="/Home/Index">
+                            <i class="bi bi-arrow-bar-right"></i><span class="d-none d-sm-inline">Regresar al Home</span>
                         </a>
                     </div>
 
@@ -110,16 +110,6 @@
     </div>
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!--Mensaje de Log out-->
-    <script>
-        function confirmLogout(event) {
-            event.preventDefault();
-            const userConfirmed = confirm("¿Estas seguro(a) que quieres cerrar sesión de Administrador?");
-            if (userConfirmed) {
-                window.location.href = "/Home/Index";
-            }
-        }
-    </script>
     <!--Cambio de no visto a visto-->
     <script>
         document.querySelectorAll('.btn-detalles').forEach(boton => {

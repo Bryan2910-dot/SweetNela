@@ -1,0 +1,130 @@
+@model dynamic
+@using System.Collections.Generic
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Carrito";
+    IEnumerable<SweetNela.Models.PreOrden> listItemsCarrito = new List<PreOrden>();
+    listItemsCarrito = @Model.elementosCarrito;
+    Decimal montoTotal = @Model.montoTotal;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background-color: #69153B;"> <!-- Color vino del fondo -->
+<div class="sidebar">
+    <h2>🏠 SweetNela</h2>
+    <ul>
+        
+        <li><a class="nav-link">🛒 Carrito</a></li> <!-- Nuevo apartado -->
+        <li><a href="PedidoMejora/Index" class="nav-link">📝 Agregar Pedido</a></li>  <!-- Nuevo apartado meow meow meow -->
+    </ul>
+    <div class="admin-section">
+        <p>👤 Nombre del Admin</p>
+        <a href="/Logout" class="logout">➡️ Log out</a>
+
+    </div>
+</div>
+    <div class="container mt-5">
+
+        <h1 class="text-white mb-4 text-center">@ViewData["Title"]</h1>
+
+        <div class="text-center mb-3">
+            <a class="btn btn-primary" asp-controller="Pago" 
+               asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>
+        </div>
+
+        <p class="text-white text-center">Total S/. @montoTotal</p>
+
+       <div class="table-responsive">
+    <table class="table bg-white border shadow-sm rounded">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PreOrden item in Model.elementosCarrito)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Producto.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+
+            <!-- Añadir 7 filas de color blanco -->
+           <tr style="background-color: #bc5d88; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: white; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: #bc5d88; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: white; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: #bc5d88; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: white; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr style="background-color: #bc5d88; height: 8mm;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+        </tbody>
+    </table>
+</div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<SweetNela.Models.Producto>
+@{
     ViewData["Title"] = "Catalogo";
 }
 
@@ -89,62 +90,29 @@
 
         <div class="col-md-9 p-3">
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Catálogo</h2>
-                <i class="fa-solid fa-cart-shopping fs-3"></i>
+                <h2 class="text-white">Catálogo</h2>
             </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
+                @foreach (var item in Model) {
                 <div class="col">
                     <div class="card h-100 text-center position-relative overflow-hidden">
                         <div class="position-relative">
-                            <img src="https://thecaketortas.pe/wp-content/uploads/2024/04/torta-one-piece2.png" class="card-img-top" alt="Producto 2">
-                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <i class="fa-solid fa-plus"></i>
+                            <img src="@item.ImageURL" class="card-img-top" alt="Producto 2">
+                            <button  class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
+                                <a asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">
+                                    <i class="fa-solid fa-plus text-white"></i>
+                                </a>
                             </button>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title m-0">One Piece</h5>
+                            <h5 class="card-title m-0">@Html.DisplayFor(modelItem => item.Name)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalle</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 text-center position-relative overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://thecaketortas.pe/wp-content/uploads/2024/04/torta-one-piece2.png" class="card-img-top" alt="Producto 2">
-                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title m-0">One Piece</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center position-relative overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://thecaketortas.pe/wp-content/uploads/2024/04/torta-one-piece2.png" class="card-img-top" alt="Producto 2">
-                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title m-0">One Piece</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center position-relative overflow-hidden">
-                        <div class="position-relative">
-                            <img src="https://thecaketortas.pe/wp-content/uploads/2024/04/torta-one-piece2.png" class="card-img-top" alt="Producto 2">
-                            <button class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title m-0">One Piece</h5>
-                        </div>
-                    </div>
-                </div>
+                }
+        
             </div>
         </div>
     </div>
