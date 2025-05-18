@@ -7,25 +7,31 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SweetNela.Data;
 using SweetNela.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity; // <- Importante para UserManager
 
 namespace SweetNela.Controllers
 {
     public class ContactoController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager; // <- Nuevo
 
-        public ContactoController(ApplicationDbContext context)
+        public ContactoController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager; // <- Nuevo
         }
 
         // GET: Contacto
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.DbSetContacto.ToListAsync());
         }
 
         // GET: Contacto/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,14 +50,21 @@ namespace SweetNela.Controllers
         }
 
         // GET: Contacto/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+            var model = new Contacto();
+
+            if (user != null)
+            {
+                model.Email = user.Email;
+                model.Telefono = user.PhoneNumber;
+            }
+
+            return View(model);
         }
 
         // POST: Contacto/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombres,Email,Telefono,Mensaje,Respuesta")] Contacto contacto)
@@ -60,12 +73,13 @@ namespace SweetNela.Controllers
             {
                 _context.Add(contacto);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
             return View(contacto);
         }
 
         // GET: Contacto/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,10 +96,9 @@ namespace SweetNela.Controllers
         }
 
         // POST: Contacto/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nombres,Email,Telefono,Mensaje,Respuesta")] Contacto contacto)
         {
             if (id != contacto.Id)
@@ -117,6 +130,7 @@ namespace SweetNela.Controllers
         }
 
         // GET: Contacto/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +149,7 @@ namespace SweetNela.Controllers
         }
 
         // POST: Contacto/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
