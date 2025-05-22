@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<SweetNela.Models.Producto>
 @{
     ViewData["Title"] = "Catalogo";
+    double tipoCambio = ViewData["TipoCambioUSD"] != null ? Convert.ToDouble(ViewData["TipoCambioUSD"]) : 1;
+}
+
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -106,7 +109,11 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title m-0">@Html.DisplayFor(modelItem => item.Name)</h5>
-                            <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+<p class="card-text">
+    S/. @item.Price <br />
+USD $@String.Format("{0:0.00}", item.Price * (decimal)tipoCambio)
+</p>
+
                             <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalle</a>
                         </div>
                     </div>
