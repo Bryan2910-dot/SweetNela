@@ -9,11 +9,11 @@ using SweetNela.Data;
 
 #nullable disable
 
-namespace SweetNela.Migrations
+namespace SweetNela.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250419044631_PostGressMigracion")]
-    partial class PostGressMigracion
+    [Migration("20250522210212_Migracion")]
+    partial class Migracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,6 +257,98 @@ namespace SweetNela.Migrations
                     b.ToTable("t_contacto");
                 });
 
+            modelBuilder.Entity("SweetNela.Models.DetalleOrden", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("OrdenId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrdenId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("t_order_detail");
+                });
+
+            modelBuilder.Entity("SweetNela.Models.Orden", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("PagoId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PagoId");
+
+                    b.ToTable("t_order");
+                });
+
+            modelBuilder.Entity("SweetNela.Models.Pago", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("MontoTotal")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("NombreTarjeta")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NumeroTarjeta")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_pago");
+                });
+
             modelBuilder.Entity("SweetNela.Models.PedidoMejora", b =>
                 {
                     b.Property<int>("Id")
@@ -402,6 +494,30 @@ namespace SweetNela.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SweetNela.Models.DetalleOrden", b =>
+                {
+                    b.HasOne("SweetNela.Models.Orden", "Orden")
+                        .WithMany()
+                        .HasForeignKey("OrdenId");
+
+                    b.HasOne("SweetNela.Models.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Orden");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("SweetNela.Models.Orden", b =>
+                {
+                    b.HasOne("SweetNela.Models.Pago", "Pago")
+                        .WithMany()
+                        .HasForeignKey("PagoId");
+
+                    b.Navigation("Pago");
                 });
 
             modelBuilder.Entity("SweetNela.Models.PreOrden", b =>
