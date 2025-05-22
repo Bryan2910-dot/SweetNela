@@ -4,6 +4,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using SweetNela.Data;
 using SweetNela.Data;
 using SweetNela.Integration.Exchange;
+using SweetNela.Service;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,21 @@ builder.Services.AddControllersWithViews();
 
 //Registro las integraciones
 builder.Services.AddScoped<ExchangeIntegration>();
+builder.Services.AddScoped<ProductoService, ProductoService>();
+// API Documentation
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "API",
+        Version = "v1",
+        Description = "Descripción de la API"
+    });
+});
+
+
+
 
 // Permitir CORS para todos los orígenes
 builder.Services.AddCors(options =>
@@ -57,11 +74,20 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSwagger();
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+});
+
 app.UseRouting();
 
 app.UseSession();
 
 app.UseAuthorization();
+app.UseCors("PermitirTodos");
+
 
 app.MapControllerRoute(
     name: "default",
