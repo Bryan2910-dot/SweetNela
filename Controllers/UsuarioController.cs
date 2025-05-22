@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SweetNela.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UsuarioController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
