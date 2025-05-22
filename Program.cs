@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using SweetNela.Data;
-using SweetNela.Data;
+using SweetNela.Integration.Exchange;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +23,21 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
   .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//Registro las integraciones
+builder.Services.AddScoped<ExchangeIntegration>();
+
+// Permitir CORS para todos los orígenes
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodos", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 
 var app = builder.Build();
 
