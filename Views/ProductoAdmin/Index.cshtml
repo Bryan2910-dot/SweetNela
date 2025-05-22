@@ -8,7 +8,7 @@
 <h1>Productos</h1>
 
 <p>
-    <a asp-action="Create">Crear Nuevo queque</a>
+    <a asp-action="Create">Crear Nueva torta</a>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
             <img src="@item.ImageURL" alt="Imagen de @item.Name" style="max-height: 100px;" />
         </td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
         </td>
     </tr>
 }
