@@ -12,8 +12,8 @@ using SweetNela.Data;
 namespace SweetNela.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250522112045_PagoMigracion")]
-    partial class PagoMigracion
+    [Migration("20250522210212_Migracion")]
+    partial class Migracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -322,8 +322,7 @@ namespace SweetNela.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
+                        .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 

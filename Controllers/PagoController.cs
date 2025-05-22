@@ -82,7 +82,7 @@ public IActionResult Pagar(Pago pago)
     // No es necesario llamar a _context.Update(pago); EF lo rastrea como "Added"
     _context.SaveChanges();
 
-    ViewData["Message"] = $"El pago se ha registrado y su pedido nro {pedido.Id} está en camino";
+    ViewData["Message"] = $"El pago se ha registrado y su pedido es el nro {pedido.Id} de SweetNela, está en camino";
 return View("Create", pago);
 }
 
