@@ -1,45 +1,35 @@
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using SweetNela.Data;
 
 namespace SweetNela.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UsuarioController(ApplicationDbContext context)
+        public UsuarioController(UserManager<IdentityUser> userManager)
         {
-            _context = context;
+            _userManager = userManager;
         }
 
         // GET: Usuario
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.DbSetAppUser.ToListAsync());
+            var users = _userManager.Users.ToList();
+            return View(users);
         }
 
         // GET: Usuario/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var applicationUser = await _context.DbSetAppUser
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (applicationUser == null)
-            {
-                return NotFound();
-            }
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
 
-            return View(applicationUser);
+            return View(user);
         }
 
         // GET: Usuario/Create
@@ -49,88 +39,75 @@ namespace SweetNela.Controllers
         }
 
         // POST: Usuario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public async Task<IActionResult> Create([Bind("Email,UserName,PhoneNumber")] IdentityUser user, string password)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(applicationUser);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var result = await _userManager.CreateAsync(user, password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
             }
-            return View(applicationUser);
+
+            return View(user);
         }
 
         // GET: Usuario/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var applicationUser = await _context.DbSetAppUser.FindAsync(id);
-            if (applicationUser == null)
-            {
-                return NotFound();
-            }
-            return View(applicationUser);
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            return View(user);
         }
 
         // POST: Usuario/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Email,UserName,PhoneNumber")] IdentityUser updatedUser)
         {
-            if (id != applicationUser.Id)
-            {
-                return NotFound();
-            }
+            if (id != updatedUser.Id) return NotFound();
 
-            if (ModelState.IsValid)
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            user.Email = updatedUser.Email;
+            user.UserName = updatedUser.UserName;
+            user.PhoneNumber = updatedUser.PhoneNumber;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
             {
-                try
-                {
-                    _context.Update(applicationUser);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ApplicationUserExists(applicationUser.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
             }
-            return View(applicationUser);
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(user);
         }
 
         // GET: Usuario/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var applicationUser = await _context.DbSetAppUser
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (applicationUser == null)
-            {
-                return NotFound();
-            }
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
 
-            return View(applicationUser);
+            return View(user);
         }
 
         // POST: Usuario/Delete/5
@@ -138,19 +115,13 @@ namespace SweetNela.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var applicationUser = await _context.DbSetAppUser.FindAsync(id);
-            if (applicationUser != null)
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
             {
-                _context.DbSetAppUser.Remove(applicationUser);
+                await _userManager.DeleteAsync(user);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ApplicationUserExists(string id)
-        {
-            return _context.DbSetAppUser.Any(e => e.Id == id);
         }
     }
 }
