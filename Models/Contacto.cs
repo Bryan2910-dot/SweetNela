@@ -19,7 +19,6 @@ namespace SweetNela.Models
         [EmailAddress(ErrorMessage = "Debe ingresar un correo electrónico válido")]
         public string? Email { get; set; }
 
-        [Required(ErrorMessage = "Debe llenar este campo")]
         [Phone(ErrorMessage = "Debe ingresar un número de teléfono válido")]
         public string? Telefono { get; set; }
 
