@@ -43,6 +43,13 @@
         </dd>
     </dl>
 </div>
+<a class="btn btn-sm btn-secondary" 
+   asp-action="Chat" 
+   asp-route-id="@Model.Id">
+   Chat
+</a>
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

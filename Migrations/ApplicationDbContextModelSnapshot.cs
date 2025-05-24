@@ -284,6 +284,35 @@ namespace SweetNela.Migrations
                     b.ToTable("t_order_detail");
                 });
 
+            modelBuilder.Entity("SweetNela.Models.MensajeChat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContactoId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Contenido")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("FechaEnvio")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Remitente")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContactoId");
+
+                    b.ToTable("DbSetMensajeChat");
+                });
+
             modelBuilder.Entity("SweetNela.Models.Orden", b =>
                 {
                     b.Property<int>("Id")
@@ -508,6 +537,17 @@ namespace SweetNela.Migrations
                     b.Navigation("Producto");
                 });
 
+            modelBuilder.Entity("SweetNela.Models.MensajeChat", b =>
+                {
+                    b.HasOne("SweetNela.Models.Contacto", "Contacto")
+                        .WithMany("Mensajes")
+                        .HasForeignKey("ContactoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contacto");
+                });
+
             modelBuilder.Entity("SweetNela.Models.Orden", b =>
                 {
                     b.HasOne("SweetNela.Models.Pago", "Pago")
@@ -524,6 +564,11 @@ namespace SweetNela.Migrations
                         .HasForeignKey("ProductoId");
 
                     b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("SweetNela.Models.Contacto", b =>
+                {
+                    b.Navigation("Mensajes");
                 });
 #pragma warning restore 612, 618
         }
