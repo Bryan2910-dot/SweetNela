@@ -65,18 +65,25 @@ namespace SweetNela.Controllers
         }
 
         // POST: Contacto/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombres,Email,Telefono,Mensaje,Respuesta")] Contacto contacto)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(contacto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Create));
-            }
-            return View(contacto);
-        }
+        // POST: Contacto/Create
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create([Bind("Id,Nombres,Email,Telefono,Mensaje,Respuesta")] Contacto contacto)
+{
+    if (ModelState.IsValid)
+    {
+        _context.Add(contacto);
+        await _context.SaveChangesAsync();
+
+        // Guardamos mensaje de éxito en TempData
+        TempData["MensajeEnviado"] = "¡Mensaje enviado correctamente!";
+
+        // Redirigimos para evitar reenvío accidental
+        return RedirectToAction(nameof(Create));
+    }
+    return View(contacto);
+}
+
 
         // GET: Contacto/Edit/5
         [Authorize(Roles = "Admin")]
