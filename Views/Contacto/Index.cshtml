@@ -2,59 +2,42 @@
 
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Registro de Contactos";
 }
 
-<h1>Registro de Contactos</del></h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Crear NUEVO contacto</a>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo Contacto</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mensaje)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Respuesta)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.Mensaje)</th>
+            <th>@Html.DisplayNameFor(model => model.Respuesta)</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mensaje)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Respuesta)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                <td>@Html.DisplayFor(modelItem => item.Mensaje)</td>
+                <td>@Html.DisplayFor(modelItem => item.Respuesta)</td>
+                <td>
+                    <a class="btn btn-sm btn-warning me-1" asp-action="Edit" asp-route-id="@item.Id" title="Editar">Editar</a>
+                    <a class="btn btn-sm btn-info me-1" asp-action="Details" asp-route-id="@item.Id" title="Detalles">Responder</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id" title="Eliminar" onclick="return confirm('¿Seguro que deseas eliminar este contacto?');">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+

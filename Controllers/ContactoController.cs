@@ -163,6 +163,39 @@ namespace SweetNela.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
+public async Task<IActionResult> Chat(int id)
+{
+    var contacto = await _context.DbSetContacto
+        .Include(c => c.Mensajes)
+        .FirstOrDefaultAsync(c => c.Id == id);
+
+    if (contacto == null)
+        return NotFound();
+
+    ViewBag.ContactoId = contacto.Id;
+    return View(contacto);
+}
+
+[HttpPost]
+public async Task<IActionResult> EnviarMensaje(int ContactoId, string Remitente, string Contenido)
+{
+    if (string.IsNullOrWhiteSpace(Contenido))
+        return RedirectToAction("Chat", new { id = ContactoId });
+
+    var mensaje = new MensajeChat
+    {
+        ContactoId = ContactoId,
+        Remitente = Remitente,
+        Contenido = Contenido,
+        FechaEnvio = DateTime.UtcNow // ✅ SOLUCIÓN AQUÍ
+    };
+
+    _context.DbSetMensajeChat.Add(mensaje);
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction("Chat", new { id = ContactoId });
+}
 
         private bool ContactoExists(int id)
         {

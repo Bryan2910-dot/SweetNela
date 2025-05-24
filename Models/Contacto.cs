@@ -30,5 +30,7 @@ namespace SweetNela.Models
         public string? Mensaje { get; set; }
 
         public string? Respuesta { get; set; }
+
+        public ICollection<MensajeChat> Mensajes { get; set; }
     }
 }

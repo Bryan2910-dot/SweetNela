@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Chat en tiempo real";
+}
+
+<h2>Chat en tiempo real</h2>
+
+<div>
+    <input type="text" id="userInput" placeholder="Tu nombre" />
+    <input type="text" id="messageInput" placeholder="Escribe un mensaje" />
+    <button id="sendButton">Enviar</button>
+</div>
+
+<ul id="messagesList"></ul>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        connection.on("ReceiveMessage", (user, message) => {
+            const li = document.createElement("li");
+            li.textContent = `${user}: ${message}`;
+            document.getElementById("messagesList").appendChild(li);
+        });
+
+        connection.start().catch(err => console.error(err.toString()));
+
+        document.getElementById("sendButton").addEventListener("click", () => {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+            if (user && message) {
+                connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+                document.getElementById("messageInput").value = "";
+            }
+        });
+
+        // Opcional: permitir enviar mensaje con Enter
+        document.getElementById("messageInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                document.getElementById("sendButton").click();
+            }
+        });
+    </script>
+}

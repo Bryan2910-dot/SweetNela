@@ -1,0 +1,26 @@
+@model SweetNela.Models.Contacto
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Chat con " + Model.Nombres;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+    @foreach (var msg in Model.Mensajes.OrderBy(m => m.FechaEnvio))
+    {
+        <div class="mb-2">
+            <strong>@msg.Remitente:</strong> @msg.Contenido <br />
+            <small class="text-muted">@msg.FechaEnvio.ToString("g")</small>
+        </div>
+    }
+</div>
+
+<form asp-action="EnviarMensaje" method="post">
+    <input type="hidden" name="ContactoId" value="@ViewBag.ContactoId" />
+    <input type="hidden" name="Remitente" value="Admin" />
+    <div class="mb-2">
+        <textarea name="Contenido" class="form-control" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
