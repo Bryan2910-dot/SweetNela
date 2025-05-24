@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using SweetNela.Data;
-using SweetNela.Data;
 using SweetNela.Integration.Exchange;
 using SweetNela.Service;
 using Microsoft.OpenApi.Models;
@@ -30,6 +29,8 @@ builder.Services.AddControllersWithViews();
 //Registro las integraciones
 builder.Services.AddScoped<ExchangeIntegration>();
 builder.Services.AddScoped<ProductoService, ProductoService>();
+builder.Services.AddHttpClient<PayPalService>();
+
 // API Documentation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

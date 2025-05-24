@@ -1,13 +1,14 @@
 @model SweetNela.Models.Pago
 @{
-    
     ViewData["Title"] = "Procesar Pago";
 }
 
 <div class="container mt-5" style="max-width: 600px;">
     <div class="card shadow-lg">
         <div class="card-body">
-            <h3 class="card-title text-center mb-4" style="color: #69153B;">Información de Pago</h3>
+            <h3 class="card-title text-center mb-4" style="color: #69153B;">Redirigiendo a PayPal</h3>
+
+            <p class="text-center">Serás redirigido a PayPal para completar tu pago.</p>
 
             @if (ViewData["Message"] != null)
             {
@@ -16,49 +17,18 @@
                 </div>
             }
 
-            <form asp-action="Pagar" method="post">
-                <input type="hidden" asp-for="UserName" />
-                <input type="hidden" asp-for="MontoTotal" />
-
-                <div class="mb-3">
-                    <label class="form-label">Nombre en la tarjeta</label>
-                    <input asp-for="NombreTarjeta" class="form-control" required />
-                    <span asp-validation-for="NombreTarjeta" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Número de tarjeta</label>
-                    <input asp-for="NumeroTarjeta" class="form-control" maxlength="16" required />
-                    <span asp-validation-for="NumeroTarjeta" class="text-danger"></span>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Fecha de expiración (MM/AA)</label>
-                        <input asp-for="DueDateYYMM" class="form-control" maxlength="5" placeholder="MM/AA" required />
-                        <span asp-validation-for="DueDateYYMM" class="text-danger"></span>
-                    </div>
-                    <div class="col">
-                        <label class="form-label">CVV</label>
-                        <input asp-for="Cvv" class="form-control" maxlength="4" required />
-                        <span asp-validation-for="Cvv" class="text-danger"></span>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label class="form-label">Monto Total</label>
-                    <input class="form-control" value="S/. @Model.MontoTotal.ToString("F2")" disabled />
-                </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary px-5">Realizar Pago</button>
-                    <a asp-controller="Carrito" asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
-                </div>
-            </form>
+            <div class="text-center mt-4">
+                <a class="btn btn-primary px-5" href="@ViewData["ApprovalUrl"]">Ir a PayPal</a>
+            </div>
         </div>
     </div>
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Redirigir automáticamente a PayPal después de 3 segundos
+        setTimeout(function () {
+            window.location.href = "@ViewData["ApprovalUrl"]";
+        }, 3000);
+    </script>
 }

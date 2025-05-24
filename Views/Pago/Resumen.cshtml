@@ -1,0 +1,40 @@
+@model IEnumerable<SweetNela.Models.PreOrden>
+
+@{
+    ViewData["Title"] = "Resumen del Pago";
+    var montoTotal = ViewData["MontoTotal"] != null ? (decimal)ViewData["MontoTotal"] : 0;
+}
+
+<h1 class="text-center">Resumen del Pago</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Producto?.Name</td>
+                    <td>@item.Cantidad</td>
+                    <td>S/. @item.Precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p class="text-end">Total: S/. @montoTotal</p>
+
+        <div class="text-center mt-4">
+        <a class="btn btn-primary px-5" asp-controller="Pago" asp-action="Create" asp-route-monto="@montoTotal">Pagar con PayPal</a>
+    </div>
+}
+else
+{
+    <p>No hay productos en el carrito.</p>
+}
