@@ -1,55 +1,84 @@
 @model SweetNela.Models.Contacto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Contacto";
 }
 
-<h1 class="text-center text-white nav-link">Contacto</h1>
+<h1 class="text-center text-white nav-link mb-4">Contacto</h1>
 
-<div class="d-flex justify-content-center">
-    <div class="col-md-6"> <!-- Ajusta el tamaño del formulario -->
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Nombres" class="control-label text-white"></label>
-                <input asp-for="Nombres" class="form-control" />
-                <span asp-validation-for="Nombres" class="text-danger"></span>
+<div class="container mb-5">
+    <!-- Caja blanca contenedora -->
+    <div class="bg-white text-dark p-4 rounded shadow" style="max-width: 1100px; margin: auto;">
+        <div class="row">
+            <!-- Información de contacto -->
+            <div class="col-md-5 mb-4 mb-md-0">
+                <p><strong>Dirección:</strong> San Juan de Miraflores</p>
+                <p><strong>Email:</strong> sweetnela@gmail.com</p>
+                <p><strong>Teléfono:</strong> 926 635 137</p>
+                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 5:00 PM</p>
+                <p><strong>Sábados:</strong> 10:00 AM - 3:00 PM</p>
+                <p><strong>Domingos:</strong> Cerrado</p>
+                <p>www.sweetnela.com</p>
             </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Email" class="control-label text-white"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+            <!-- Formulario de contacto -->
+            <div class="col-md-7">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Telefono" class="control-label text-white"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Nombres" class="form-control" placeholder="Nombre" />
+                        <label asp-for="Nombres">Nombre</label>
+                        <span asp-validation-for="Nombres" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Mensaje" class="control-label text-white"></label>
-                <input asp-for="Mensaje" class="form-control" />
-                <span asp-validation-for="Mensaje" class="text-danger"></span>
-            </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                        <label asp-for="Email">Email</label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group text-center mt-4">
-                <input type="submit" value="Create" class="btn btn-primary px-4" />
-            </div>
-        </form>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Telefono" class="form-control" placeholder="Teléfono" />
+                        <label asp-for="Telefono">Teléfono</label>
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
 
-        @if (User.IsInRole("Admin"))
-        {
-            <div class="text-center mt-3">
-                <a asp-action="Index" class="text-white">Regresar a la lista
-                </a>
+                    <div class="form-floating mb-3">
+                        <textarea asp-for="Mensaje" class="form-control" placeholder="Mensaje" style="height: 150px;"></textarea>
+                        <label asp-for="Mensaje">Mensaje</label>
+                        <span asp-validation-for="Mensaje" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+    <input type="submit" value="Enviar" class="btn text-white px-4 py-2" style="background-color: #3b1015; border-radius: 30px;" />
+</div>
+
+<!-- Mensaje debajo del botón con opción de cerrar -->
+@if (TempData["MensajeEnviado"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show mt-3 text-center" role="alert">
+        @TempData["MensajeEnviado"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+}
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="text-center mt-3">
+                            <a asp-action="Index" class="text-primary">Regresar a la lista</a>
+                        </div>
+                    }
+                </form>
             </div>
-        }
+        </div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
