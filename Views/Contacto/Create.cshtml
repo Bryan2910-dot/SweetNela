@@ -9,7 +9,6 @@
 <div class="container mb-5">
     <div class="bg-white text-dark p-4 rounded shadow" style="max-width: 1100px; margin: auto;">
         <div class="row">
-            <!-- Información de contacto -->
             <div class="col-md-5 mb-4 mb-md-0">
                 <p><strong>Dirección:</strong> San Juan de Miraflores</p>
                 <p><strong>Email:</strong> sweetnela@gmail.com</p>
@@ -62,13 +61,6 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                             </div>
                         }
-
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <div class="text-center mt-3">
-                                <a asp-action="Index" class="text-primary">Regresar a la lista</a>
-                            </div>
-                        }
                     </form>
 
                     <div class="mt-4">
@@ -79,7 +71,7 @@
                 }
                 else
                 {
-                    <!-- Interfaz de chat para usuarios autenticados -->
+                    <!-- Chat para usuarios autenticados -->
                     <h4 class="text-center mb-3">Chat con Representante de SweetNela</h4>
 
                     <div class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
@@ -95,7 +87,7 @@
                         }
                         else
                         {
-                            <p class="text-muted">Aún no tienes mensajes.</p>
+                            <p class="text-muted">Este es el inicio de tu conversación con SweetNela. ¡Escríbenos tu duda o comentario!</p>
                         }
                     </div>
 
@@ -117,8 +109,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-
-
-
-
