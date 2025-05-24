@@ -7,7 +7,6 @@
 <h1 class="text-center text-white nav-link mb-4">Contacto</h1>
 
 <div class="container mb-5">
-    <!-- Caja blanca contenedora -->
     <div class="bg-white text-dark p-4 rounded shadow" style="max-width: 1100px; margin: auto;">
         <div class="row">
             <!-- Información de contacto -->
@@ -21,73 +20,95 @@
                 <p>www.sweetnela.com</p>
             </div>
 
-            <!-- Formulario de contacto -->
             <div class="col-md-7">
-                @* Mostrar errores de validación si hay *@
-                @if (ViewBag.ErroresValidacion != null)
+                @if (!User.Identity.IsAuthenticated)
                 {
-                    <div class="alert alert-danger">
-                        @ViewBag.ErroresValidacion
-                    </div>
-                }
+                    <!-- Formulario para usuarios NO autenticados -->
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
 
-                <form asp-action="Create" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
-
-                    <div class="form-floating mb-3">
-                        <input asp-for="Nombres" class="form-control" placeholder="Nombre" />
-                        <label asp-for="Nombres">Nombre</label>
-                        <span asp-validation-for="Nombres" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input asp-for="Email" class="form-control" placeholder="Email" />
-                        <label asp-for="Email">Email</label>
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input asp-for="Telefono" class="form-control" placeholder="Teléfono" />
-                        <label asp-for="Telefono">Teléfono</label>
-                        <span asp-validation-for="Telefono" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <textarea asp-for="Mensaje" class="form-control" placeholder="Mensaje" style="height: 150px;"></textarea>
-                        <label asp-for="Mensaje">Mensaje</label>
-                        <span asp-validation-for="Mensaje" class="text-danger"></span>
-                    </div>
-
-                    <div class="text-center">
-                        <input type="submit" value="Enviar" class="btn text-white px-4 py-2" style="background-color: #3b1015; border-radius: 30px;" />
-                    </div>
-
-                    <!-- Mensaje debajo del botón con opción de cerrar -->
-                    @if (TempData["MensajeEnviado"] != null)
-                    {
-                        <div class="alert alert-success alert-dismissible fade show mt-3 text-center" role="alert">
-                            @TempData["MensajeEnviado"]
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Nombres" class="form-control" placeholder="Nombre" />
+                            <label asp-for="Nombres">Nombre</label>
+                            <span asp-validation-for="Nombres" class="text-danger"></span>
                         </div>
-                    }
 
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <div class="text-center mt-3">
-                            <a asp-action="Index" class="text-primary">Regresar a la lista</a>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                            <label asp-for="Email">Email</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
-                    }
-                </form>
 
-                <!-- Mostrar aviso solo si NO ha iniciado sesión -->
-                <div class="mt-4">
-                    @if (!User.Identity.IsAuthenticated)
-                    {
+                        <div class="form-floating mb-3">
+                            <input asp-for="Telefono" class="form-control" placeholder="Teléfono" />
+                            <label asp-for="Telefono">Teléfono</label>
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <textarea asp-for="Mensaje" class="form-control" placeholder="Mensaje" style="height: 150px;"></textarea>
+                            <label asp-for="Mensaje">Mensaje</label>
+                            <span asp-validation-for="Mensaje" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <input type="submit" value="Enviar" class="btn text-white px-4 py-2" style="background-color: #3b1015; border-radius: 30px;" />
+                        </div>
+
+                        @if (TempData["MensajeEnviado"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show mt-3 text-center" role="alert">
+                                @TempData["MensajeEnviado"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                            </div>
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="text-center mt-3">
+                                <a asp-action="Index" class="text-primary">Regresar a la lista</a>
+                            </div>
+                        }
+                    </form>
+
+                    <div class="mt-4">
                         <div class="alert alert-secondary text-center">
                             <i class="bi bi-lock"></i> Inicia sesión para ver la respuesta del administrador.
                         </div>
-                    }
-                </div>
+                    </div>
+                }
+                else
+                {
+                    <!-- Interfaz de chat para usuarios autenticados -->
+                    <h4 class="text-center mb-3">Chat con Representante de SweetNela</h4>
+
+                    <div class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+                        @if (Model.Mensajes != null && Model.Mensajes.Any())
+                        {
+                            foreach (var msg in Model.Mensajes.OrderBy(m => m.FechaEnvio))
+                            {
+                                <div class="mb-2">
+                                    <strong>@msg.Remitente:</strong> @msg.Contenido <br />
+                                    <small class="text-muted">@msg.FechaEnvio.ToString("g")</small>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted">Aún no tienes mensajes.</p>
+                        }
+                    </div>
+
+                    <form asp-action="EnviarMensajeUsuario" method="post">
+                        <input type="hidden" name="contactoId" value="@Model.Id" />
+                        <div class="mb-3">
+                            <textarea name="contenido" class="form-control" rows="3" placeholder="Escribe tu mensaje..." required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                }
             </div>
         </div>
     </div>
@@ -96,6 +117,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
 
 
 

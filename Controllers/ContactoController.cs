@@ -50,19 +50,50 @@ namespace SweetNela.Controllers
         }
 
         // GET: Contacto/Create
-        public async Task<IActionResult> Create()
+        [Authorize]
+public async Task<IActionResult> Create()
+{
+    var user = await _userManager.GetUserAsync(User);
+    var contacto = await _context.DbSetContacto
+        .Include(c => c.Mensajes)
+        .FirstOrDefaultAsync(c => c.Email == user.Email);
+
+    if (contacto == null)
+    {
+        contacto = new Contacto
         {
-            var user = await _userManager.GetUserAsync(User);
-            var model = new Contacto();
+            Email = user.Email,
+            Telefono = user.PhoneNumber,
+            Nombres = user.UserName
+        };
+        _context.DbSetContacto.Add(contacto);
+        await _context.SaveChangesAsync();
+    }
 
-            if (user != null)
-            {
-                model.Email = user.Email;
-                model.Telefono = user.PhoneNumber;
-            }
+    return View(contacto);
+}
+[HttpPost]
+[Authorize]
+public async Task<IActionResult> EnviarMensajeUsuario(int contactoId, string contenido)
+{
+    if (string.IsNullOrWhiteSpace(contenido))
+        return RedirectToAction("Create");
 
-            return View(model);
-        }
+    var user = await _userManager.GetUserAsync(User);
+    var mensaje = new MensajeChat
+    {
+        ContactoId = contactoId,
+        Remitente = user.Email,
+        Contenido = contenido,
+        FechaEnvio = DateTime.UtcNow
+    };
+
+    _context.DbSetMensajeChat.Add(mensaje);
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction("Create");
+}
+
 
         // POST: Contacto/Create
         // POST: Contacto/Create
