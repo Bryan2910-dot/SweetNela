@@ -75,14 +75,19 @@ public async Task<IActionResult> Create([Bind("Id,Nombres,Email,Telefono,Mensaje
         _context.Add(contacto);
         await _context.SaveChangesAsync();
 
-        // Guardamos mensaje de éxito en TempData
         TempData["MensajeEnviado"] = "¡Mensaje enviado correctamente!";
-
-        // Redirigimos para evitar reenvío accidental
         return RedirectToAction(nameof(Create));
     }
+    
+    // Si hay errores, listarlos para debug
+    var errores = string.Join("; ", ModelState.Values
+        .SelectMany(v => v.Errors)
+        .Select(e => e.ErrorMessage));
+    ViewBag.ErroresValidacion = errores;
+
     return View(contacto);
 }
+
 
 
         // GET: Contacto/Edit/5
