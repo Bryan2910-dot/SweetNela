@@ -31,7 +31,19 @@ namespace SweetNela.Controllers
         {
             return View();
         }
-        
+        [HttpPost]
+        public IActionResult CalcularPrecio([FromBody] PedidoMejora pedido)
+        {
+            if (pedido == null)
+                return BadRequest();
+
+            var resultado1 = pedido.Calcular1();
+            var resultado2 = pedido.Calcular2();
+            var resultado3 = pedido.Calcular3();
+            var sumaTotal = resultado1 + resultado2 + resultado3;
+
+            return Json(new { precio = sumaTotal });
+        }
         [HttpPost]
         public IActionResult PedidoMejora(PedidoMejora pedido)
         {
