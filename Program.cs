@@ -5,8 +5,12 @@ using SweetNela.Data;
 using SweetNela.Integration.Exchange;
 using SweetNela.Service;
 using Microsoft.OpenApi.Models;
+using SweetNela.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// SignalR
+builder.Services.AddSignalR();
 
 builder.Services.AddSession(options =>
 {
@@ -23,15 +27,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
   .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+  .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
 
-//Registro las integraciones
+// Integraciones y servicios
 builder.Services.AddScoped<ExchangeIntegration>();
 builder.Services.AddScoped<ProductoService, ProductoService>();
-builder.Services.AddHttpClient<PayPalService>();
 
-// API Documentation
+
+// Swagger (API docs)
+builder.Services.AddHttpClient<PayPalService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -43,10 +49,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-
-
-// Permitir CORS para todos los orígenes
+// CORS para permitir todos los orígenes (para SignalR o peticiones externas)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirTodos", policy =>
@@ -57,10 +60,9 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -68,7 +70,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -76,7 +77,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseSwagger();
-
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
@@ -89,36 +89,28 @@ app.UseSession();
 app.UseAuthorization();
 app.UseCors("PermitirTodos");
 
+// Mapear el Hub SignalR
+app.MapHub<ChatHub>("/chatHub");
 
+// Rutas MVC y Razor Pages
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+// Creación de roles y usuario Admin (async dentro de scope)
 using (var scope = app.Services.CreateScope())
 {
-    var roleManager=scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-    var roles= new [] {
-        "Admin",
-        "Manager",
-        "User"
-    };
+    var roles = new[] { "Admin", "Manager", "User" };
 
     foreach (var role in roles)
     {
         if (!await roleManager.RoleExistsAsync(role))
-        {
             await roleManager.CreateAsync(new IdentityRole(role));
-        }
     }
-    
-}
-
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
     string email = "adminSweetNela@admin.com";
     string password = "AdSNkk#4532";

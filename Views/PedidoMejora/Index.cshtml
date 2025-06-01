@@ -115,12 +115,13 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Calcular</button>
+                    <button type="button" id="btnCalcular" class="btn btn-secondary">Calcular</button>
+                    <button type="submit" id="btnAceptar" class="btn btn-primary">Acepto el pago</button>
         </form>
-        <div class="result">
-            <h3>Resultado de los cálculos:</h3>
-            <p>@ViewData["Resultado"]</p>
-        </div>
+                <div class="result">
+                    <h3>Resultado de los cálculos:</h3>
+                    <p id="resultadoPrecio">@ViewData["Resultado"]</p>
+                </div>
     </div>
     <script src="~/js/pedidoMejora.js" asp-append-version="true"></script>
 </body>

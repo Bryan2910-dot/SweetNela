@@ -17,7 +17,7 @@ namespace SweetNela.Data{
         public DbSet<Pago> DbSetPago { get; set; }
         public DbSet<Orden> DbSetOrden { get; set; }
         public DbSet<DetalleOrden> DbSetDetalleOrden { get; set; }
-
+        public DbSet<MensajeChat> DbSetMensajeChat { get; set; }
 
     }
 
