@@ -37,49 +37,72 @@ public class PayPalService
         var data = JsonSerializer.Deserialize<JsonElement>(json);
         return data.GetProperty("access_token").GetString();
     }
-
+    
     public async Task<string> CreatePaymentAsync(decimal amount, string currency, string returnUrl, string cancelUrl)
     {
-        // Crear el contexto de la API de PayPal
-        var apiContext = new APIContext(await GetAccessTokenAsync())
-        {
-            Config = new Dictionary<string, string>
-            {
-                { "mode", _configuration["PayPal:Mode"] } // "sandbox" o "live"
-            }
-        };
+        // Obtén el access token usando tu método actual
+        var accessToken = await GetAccessTokenAsync();
 
-        // Configurar el objeto de pago con la moneda especificada
-        var payment = new Payment
+        // Configura el HttpClient usando el token Bearer
+        _httpClient.DefaultRequestHeaders.Clear();
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        // Crea el objeto de solicitud de pago según la API REST de PayPal
+        var paymentRequest = new
         {
             intent = "sale",
-            payer = new Payer { payment_method = "paypal" },
-            transactions = new List<Transaction>
-            {
-                new Transaction
-                {
-                    amount = new Amount
-                    {
-                        currency = currency, // Usar la moneda especificada (PEN)
-                        total = amount.ToString("F2") // Formatear el monto con dos decimales
-                    },
-                    description = "SweetNela"
-                }
-            },
-            redirect_urls = new RedirectUrls
+            redirect_urls = new
             {
                 return_url = returnUrl,
                 cancel_url = cancelUrl
+            },
+            payer = new
+            {
+                payment_method = "paypal"
+            },
+            transactions = new[]
+            {
+                new
+                {
+                    amount = new
+                    {
+                        total = amount.ToString("F2"),
+                        currency = currency
+                    },
+                    description = "Pago de SweetNela"
+                }
             }
         };
 
-        // Crear el pago en PayPal
-        var createdPayment = payment.Create(apiContext);
+        var requestJson = JsonSerializer.Serialize(paymentRequest);
+        var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
 
-        // Obtener la URL de aprobación
-        var approvalUrl = createdPayment.links.FirstOrDefault(link => link.rel == "approval_url")?.href;
+        // Llama al endpoint para crear el pago
+        var response = await _httpClient.PostAsync($"{_configuration["PayPal:BaseUrl"]}/v1/payments/payment", content);
 
-        return approvalUrl ?? throw new Exception("No se pudo generar la URL de aprobación.");
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            throw new Exception($"Error al crear el pago: {response.StatusCode} - {error}");
+        }
+
+        var jsonResponse = await response.Content.ReadAsStringAsync();
+        using var document = JsonDocument.Parse(jsonResponse);
+        var root = document.RootElement;
+
+        // En el objeto de respuesta "links" se encuentra la URL de aprobación
+        if (root.TryGetProperty("links", out JsonElement links))
+        {
+            foreach (var link in links.EnumerateArray())
+            {
+                if (link.GetProperty("rel").GetString() == "approval_url")
+                {
+                    return link.GetProperty("href").GetString();
+                }
+            }
+        }
+
+        throw new Exception("No se pudo generar la URL de aprobación.");
     }
 
     public async Task<string> TestPayPalCredentialsAsync()

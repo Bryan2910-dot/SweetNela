@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using SweetNela.Data;
 
 namespace SweetNela.Models
 {
@@ -13,26 +9,27 @@ namespace SweetNela.Models
     public class Pago
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; } // Identificador único del pago
+        public int Id { get; set; }
 
-        public DateTime PaymentDate { get; set; } // Fecha del pago
+        [Required]
+        public decimal MontoTotal { get; set; }
 
-        public Decimal MontoTotal { get; set; } // Monto total pagado
+        public DateTime PaymentDate { get; set; } = DateTime.UtcNow;
 
-        public string? Status { get; set; } // Estado del pago (e.g., "Exitoso", "Fallido")
+        public string? Status { get; set; }
 
-        public string? PayPalPaymentId { get; set; } // ID del pago generado por PayPal
-        public string? PayPalPayerId { get; set; } // ID del pagador en PayPal
+        // Relación con el usuario (AspNetUsers)
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public IdentityUser? User { get; set; }
 
-        // Relación con t_order
-        public int? OrderId { get; set; } // Clave foránea
-        [ForeignKey("OrderId")]
-        public Orden? Order { get; set; } // Propiedad de navegación
-        
-        // Relación con el usuario
-        public string? UserId { get; set; } // ID del usuario que realizó el pago
-        [ForeignKey("UserId")]
-        public virtual IdentityUser? User { get; set; } // Propiedad de navegación con AspNetUsers
+        // Relación con la orden
+        [ForeignKey("Order")]
+        public int? OrderId { get; set; }
+        public Orden? Order { get; set; }
+
+        // Opcional: campos para PayPal
+        public string? PayPalPaymentId { get; set; }
+        public string? PayPalPayerId { get; set; }
     }
 }
