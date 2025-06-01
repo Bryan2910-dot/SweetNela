@@ -1,0 +1,17 @@
+@model SweetNela.Models.Pago
+
+@{
+    ViewData["Title"] = "Pago Exitoso";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow-lg">
+        <div class="card-body text-center">
+            <h3 class="card-title" style="color: #69153B;">¡Pago realizado con éxito!</h3>
+            <p class="mt-3">Gracias por tu compra. Tu pago ha sido procesado correctamente.</p>
+            <p><strong>Monto Total:</strong> S/.@Model.MontoTotal</p>
+            <p><strong>ID de Pago:</strong> @Model.PayPalPaymentId</p>
+            <a href="/" class="btn btn-primary mt-3">Volver al inicio</a>
+        </div>
+    </div>
+</div>

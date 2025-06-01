@@ -2,18 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SweetNela.Data;
 
 #nullable disable
 
-namespace SweetNela.Migrations
+namespace SweetNela.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250524073413_Cambio_t_pago_y_t_PreOrden")]
+    partial class Cambio_t_pago_y_t_PreOrden
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,6 +238,7 @@ namespace SweetNela.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Mensaje")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nombres")
@@ -245,6 +249,7 @@ namespace SweetNela.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -282,35 +287,6 @@ namespace SweetNela.Migrations
                     b.ToTable("t_order_detail");
                 });
 
-            modelBuilder.Entity("SweetNela.Models.MensajeChat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ContactoId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Contenido")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("FechaEnvio")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Remitente")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ContactoId");
-
-                    b.ToTable("DbSetMensajeChat");
-                });
-
             modelBuilder.Entity("SweetNela.Models.Orden", b =>
                 {
                     b.Property<int>("Id")
@@ -329,12 +305,10 @@ namespace SweetNela.Migrations
                     b.Property<decimal>("Total")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("UserName")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("t_order");
                 });
@@ -366,7 +340,6 @@ namespace SweetNela.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -545,26 +518,6 @@ namespace SweetNela.Migrations
                     b.Navigation("Producto");
                 });
 
-            modelBuilder.Entity("SweetNela.Models.MensajeChat", b =>
-                {
-                    b.HasOne("SweetNela.Models.Contacto", "Contacto")
-                        .WithMany("Mensajes")
-                        .HasForeignKey("ContactoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Contacto");
-                });
-
-            modelBuilder.Entity("SweetNela.Models.Orden", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("SweetNela.Models.Pago", b =>
                 {
                     b.HasOne("SweetNela.Models.Orden", "Order")
@@ -573,9 +526,7 @@ namespace SweetNela.Migrations
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Order");
 
@@ -594,11 +545,6 @@ namespace SweetNela.Migrations
             modelBuilder.Entity("SweetNela.Models.Orden", b =>
                 {
                     b.Navigation("Pago");
-
-            modelBuilder.Entity("SweetNela.Models.Contacto", b =>
-                {
-                    b.Navigation("Mensajes");
-
                 });
 #pragma warning restore 612, 618
         }

@@ -16,5 +16,8 @@ namespace SweetNela.Models
         [NotNull]
         public Decimal Precio { get; set; }
         public string Status { get; set; } = "PENDIENTE";
+
+        // Agrega esta propiedad para almacenar el ID del usuario
+        public string UserId { get; set; }
     }
 }

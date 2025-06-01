@@ -25,16 +25,17 @@ public class CarritoController : Controller
 
         public IActionResult Index()
         {
-            var userIDSession = _userManager.GetUserName(User);
-            if (userIDSession == null)
+            var userId = _userManager.GetUserId(User); // Obtiene el ID del usuario autenticado
+            if (userId == null)
             {
                 ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
                 return RedirectToAction("Index", "Catalogo");
             }
+
             var items = from o in _context.DbSetPreOrden select o;
-            items = items.Include(p => p.Producto).
-                    Where(w => w.UserName.Equals(userIDSession) &&
-                        w.Status.Equals("PENDIENTE"));
+            items = items.Include(p => p.Producto)
+                        .Where(w => w.UserId.Equals(userId) && // Cambiado a UserId
+                                    w.Status.Equals("PENDIENTE"));
             var itemsCarrito = items.ToList();
             var total = itemsCarrito.Sum(c => c.Cantidad * c.Precio);
 
@@ -44,32 +45,61 @@ public class CarritoController : Controller
             return View(model);
         }
 
-        [Authorize]
+       [Authorize]
         public async Task<IActionResult> Add(int? id)
         {
-            var userID = _userManager.GetUserName(User);
-            if (userID == null)
+            _logger.LogInformation("Iniciando el método Add.");
+
+            if (!User.Identity.IsAuthenticated)
             {
-                _logger.LogInformation("No existe usuario");
+                _logger.LogWarning("El usuario no está autenticado.");
                 ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
                 return RedirectToAction("Index", "Catalogo");
             }
-            else
+
+            var userId = _userManager.GetUserId(User); // Obtiene el ID del usuario autenticado
+            if (userId == null)
             {
-                var producto = await _context.DbSetProducto.FindAsync(id);
-                PreOrden proforma = new PreOrden();
-                proforma.Producto = producto;
-                proforma.Precio = producto.Price;
-                proforma.Cantidad = 1;
-                proforma.UserName = userID;
-                _context.Add(proforma);
-                await _context.SaveChangesAsync();
-                ViewData["Message"] = "Se Agrego al carrito";
-                _logger.LogInformation("Se agrego un producto al carrito");
+                _logger.LogError("No se pudo obtener el ID del usuario.");
+                ViewData["Message"] = "Hubo un problema al identificar al usuario. Intente nuevamente.";
                 return RedirectToAction("Index", "Catalogo");
             }
-        }
 
+            _logger.LogInformation("Usuario autenticado con ID: {UserId}", userId);
+
+            var producto = await _context.DbSetProducto.FindAsync(id);
+            if (producto == null)
+            {
+                _logger.LogWarning("El producto con ID {ProductId} no existe.", id);
+                return NotFound("El producto no existe.");
+            }
+
+            _logger.LogInformation("Producto encontrado: {ProductName}, Precio: {ProductPrice}", producto.Name, producto.Price);
+
+            var proforma = new PreOrden
+            {
+                Producto = producto,
+                Precio = producto.Price,
+                Cantidad = 1,
+                UserId = userId, // Asigna el ID del usuario
+                Status = "PENDIENTE"
+            };
+
+            _context.Add(proforma);
+            try
+            {
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Producto agregado al carrito correctamente.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al guardar el producto en el carrito.");
+                throw;
+            }
+
+            ViewData["Message"] = "Se agregó al carrito";
+            return RedirectToAction("Index", "Catalogo");
+        }
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

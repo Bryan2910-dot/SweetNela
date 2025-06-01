@@ -35,7 +35,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ExchangeIntegration>();
 builder.Services.AddScoped<ProductoService, ProductoService>();
 
+
 // Swagger (API docs)
+builder.Services.AddHttpClient<PayPalService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

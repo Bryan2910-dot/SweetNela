@@ -14,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PaymentDate)
+                Fecha de Pago
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MontoTotal)
+                Monto Total
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Estado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                Usuario
             </th>
             <th></th>
         </tr>
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.User.UserName) <!-- Cambiado a User.UserName -->
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

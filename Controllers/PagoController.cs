@@ -1,94 +1,122 @@
-using System.Diagnostics;
-using System.Dynamic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SweetNela.Data;
 using SweetNela.Models;
-
-namespace SweetNela.Controllers;
-
-public class PagoController : Controller
+using SweetNela.Service;
+using SweetNela.Data;
+namespace SweetNela.Controllers
 {
-    private readonly ILogger<PagoController> _logger;
+    [Authorize]
+    public class PagoController : Controller
+    {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly PayPalService _payPalService;
 
-           public PagoController(ILogger<PagoController> logger,
+        public PagoController(
             UserManager<IdentityUser> userManager,
-            ApplicationDbContext context)
+            ApplicationDbContext context,
+            PayPalService payPalService)
         {
-            _logger = logger;
             _userManager = userManager;
             _context = context;
+            _payPalService = payPalService;
         }
 
-        public IActionResult Create(decimal monto)
+        // GET: /Pago/Resumen
+        public async Task<IActionResult> Resumen()
         {
+            // Obtener la pre-orden del usuario actual (ajusta según tu lógica)
+            var userId = _userManager.GetUserId(User);
+            var preOrdenes = await _context.DbSetPreOrden
+                .Include(p => p.Producto)
+                .Where(p => p.UserId == userId)
+                .ToListAsync();
 
-            Pago pago = new Pago();
-            pago.UserName = _userManager.GetUserName(User);
-            pago.MontoTotal = monto;
-            _logger.LogInformation("El monto es: ${monto}", pago.MontoTotal.ToString());
+            var montoTotal = preOrdenes.Sum(p => p.Precio * p.Cantidad);
+            ViewData["MontoTotal"] = montoTotal;
+
+            return View(preOrdenes);
+        }
+
+        // GET: /Pago/Create?monto=xx
+        public async Task<IActionResult> Create(decimal monto)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            // Aquí deberías crear la Orden y guardarla antes de crear el pago
+            var orden = new Orden
+            {
+                UserId = userId,
+                Fecha = DateTime.UtcNow,
+                // Agrega otros campos necesarios
+            };
+            _context.DbSetOrden.Add(orden);
+            await _context.SaveChangesAsync();
+
+            // Crear pago en PayPal
+            var returnUrl = Url.Action("Success", "Pago", null, Request.Scheme);
+            var cancelUrl = Url.Action("Cancel", "Pago", null, Request.Scheme);
+            var approvalUrl = await _payPalService.CreatePaymentAsync(monto, "USD", returnUrl, cancelUrl);
+            // Registrar el pago en la base de datos
+            var pago = new Pago
+            {
+                MontoTotal = monto,
+                UserId = userId,
+                OrderId = orden.Id,
+                Status = "Pending"
+            };
+            _context.DbSetPago.Add(pago);
+            await _context.SaveChangesAsync();
+
+            ViewData["ApprovalUrl"] = approvalUrl;
             return View(pago);
         }
 
-
-[HttpPost]
-public IActionResult Pagar(Pago pago)
-{
-    pago.PaymentDate = DateTime.UtcNow;
-    pago.Status = "CANCELADO"; // ✅ Ponle el status ANTES de guardar
-
-    _context.Add(pago); // EF lo está rastreando como "Added"
-
-    var itemsCarrito = from o in _context.DbSetPreOrden select o;
-    itemsCarrito = itemsCarrito
-        .Include(p => p.Producto)
-        .Where(s => s.UserName.Equals(pago.UserName) && s.Status.Equals("PENDIENTE"));
-
-    Orden pedido = new Orden
-    {
-        UserName = pago.UserName,
-        Total = pago.MontoTotal,
-        Pago = pago,
-        Status = "PENDIENTE"
-    };
-
-    _context.Add(pedido);
-
-    List<DetalleOrden> itemsPedido = new();
-    foreach (var item in itemsCarrito.ToList())
-    {
-        itemsPedido.Add(new DetalleOrden
+        // GET: /Pago/Success
+        public async Task<IActionResult> Success(string paymentId, string PayerID)
         {
-            Orden = pedido,
-            Precio = item.Precio,
-            Producto = item.Producto,
-            Cantidad = item.Cantidad
-        });
-    }
+            // Obtener el usuario actual
+            var userId = _userManager.GetUserId(User);
 
-    _context.AddRange(itemsPedido);
+            // Buscar el pago pendiente
+            var pago = await _context.DbSetPago
+                .Where(p => p.UserId == userId && p.Status == "Pending")
+                .OrderByDescending(p => p.Id)
+                .FirstOrDefaultAsync();
 
-    foreach (PreOrden p in itemsCarrito.ToList())
-    {
-        p.Status = "PROCESADO";
-    }
+            if (pago != null)
+            {
+                // Actualizar el estado del pago
+                pago.Status = "Completed";
+                pago.PayPalPaymentId = paymentId;
+                pago.PayPalPayerId = PayerID;
+                await _context.SaveChangesAsync();
 
-    _context.UpdateRange(itemsCarrito);
+                // Vaciar el carrito del usuario
+                var preOrdenes = _context.DbSetPreOrden.Where(p => p.UserId == userId);
+                _context.DbSetPreOrden.RemoveRange(preOrdenes);
+                await _context.SaveChangesAsync();
+            }
 
-    // No es necesario llamar a _context.Update(pago); EF lo rastrea como "Added"
-    _context.SaveChanges();
-
-    ViewData["Message"] = $"El pago se ha registrado y su pedido es el nro {pedido.Id} de SweetNela, está en camino";
-return View("Create", pago);
-}
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
+            ViewData["Message"] = "¡Pago realizado con éxito!";
+            return View("Success", pago);
         }
+
+        // GET: /Pago/Cancel
+        public IActionResult Cancel()
+        {
+            ViewData["Message"] = "El pago fue cancelado.";
+            return View("Cancel");
+        }
+
+     [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> TestPayPal()
+    {
+        var result = await _payPalService.TestPayPalCredentialsAsync();
+        return Content(result);
+    }
+    }
 }
