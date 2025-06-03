@@ -10,11 +10,11 @@
         <div class="section-content">
           <div class="hero-details">
             <h2 class="title">Sweet Nela</h2>
-            <h3 class="subtitle">los mejores pasteles y cakes diseñados a tu gusto</h3>
-            <p class="description">especializados en resposteria y diseño</p>
+            <h3 class="subtitle">Los mejores pasteles y cakes diseñados a tu gusto</h3>
+            <p class="description">Especializados en resposteria y diseño</p>
             <div class="buttons">
-              <a href="#" class="button order-now">hacer pedido</a>
-              <a href="#contact" class="button contact-us">contactanos</a>
+              <a class="button order-now" asp-controller="Catalogo" asp-action="Index">Hacer Pedido</a>
+              <a class="button contact-us" asp-controller="Contacto" asp-action="Create">Contactanos</a>
             </div>
           </div>
           <div class="hero-image-wrapper">
@@ -29,7 +29,7 @@
             <img src="~/imagenes/A.png" asp-append-version="true" alt="Descripción" />
           </div>
           <div class="about-details">
-            <h2 class="section-title">Nosotros</h2>
+            <h2 class="section-title" style="color: black;">Nosotros</h2>
             <p class="text">El objetivo de Sweet Nela al vender pasteles personalizados es brindar productos únicos y adaptados a los gustos de cada cliente. Buscamos hacer de cada celebración un momento especial con diseños exclusivos, sabores personalizados y decoraciones creativas, diferenciándonos en el mercado y fomentando la fidelización de nuestros clientes.</p>
             <div class="social-link-list">
               <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
@@ -40,98 +40,162 @@
         </div>
       </section>
       <!-- menu seccion -->
-      <section class="menu-section" id="menu">
-        <h2 class="section-title">NUESTROS PASTELES</h2>
-        <div class="section-content">
-          <ul class="menu-list">
-            <li class="menu-item">
-              <img src="~/imagenes/cakecalendar.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">CAKE CALENDAR</h3>
-                <p class="text">una tortita de corazon super linda,con un efecto burn cake</p>
-              </div>
-            </li>
-            <li class="menu-item">
-              <img src="~/imagenes/rositafresita.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">ROSITA FRESITA</h3>
-                <p class="text">una tortita de rosita fresita super cute! para 20 porciones aproximada!</p>
-              </div>
-            </li>
-            <li class="menu-item">
-              <img src="~/imagenes/ranitas.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">TORTITA DE RANITA</h3>
-                <p class="text">un pastel super lindo para una pareja especial.</p>
-              </div>
-            </li>
-            <li class="menu-item">
-              <img src="~/imagenes/deadpool.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">box de deadpool</h3>
-                <p class="text">algunos boxes que hemos realizado a lo largo del año.</p>
-              </div>
-            </li>
-            <li class="menu-item">
-              <img src="~/imagenes/spiderman.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">Mini spiderman cake</h3>
-                <p class="text">con sentido aracnido incluido.</p>
-              </div>
-            </li>
-            <li class="menu-item">
-              <img src="~/imagenes/nana.jpeg" asp-append-version="true" alt="Descripción" />
-              <div class="menu-details">
-                <h3 class="name">nana´s cake</h3>
-                <p class="text">pastelito incluido con fresas naturales </p>
-              </div>
-            </li>
-          </ul>
+<section class="menu-section" id="menu">
+  <h2 class="section-title">NUESTROS PASTELES</h2>
+  <div class="section-content">
+    <ul class="menu-list">
+      <li class="menu-item">
+        <img src="~/imagenes/cakecalendar.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">CAKE CALENDAR</h3>
+          <p class="text">Una tortita de corazon super linda,con un efecto burn cake</p>
         </div>
-      </section>
+      </li>
+      <li class="menu-item">
+        <img src="~/imagenes/rositafresita.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">ROSITA FRESITA</h3>
+          <p class="text">Una tortita de rosita fresita super cute! para 20 porciones aproximada!</p>
+        </div>
+      </li>
+      <li class="menu-item">
+        <img src="~/imagenes/ranitas.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">TORTITA DE RANITA</h3>
+          <p class="text">Un pastel super lindo para una pareja especial.</p>
+        </div>
+      </li>
+      <li class="menu-item">
+        <img src="~/imagenes/deadpool.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">Box de deadpool</h3>
+          <p class="text">Algunos boxes que hemos realizado a lo largo del año.</p>
+        </div>
+      </li>
+      <li class="menu-item">
+        <img src="~/imagenes/spiderman.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">Mini spiderman cake</h3>
+          <p class="text">Con sentido aracnido incluido.</p>
+        </div>
+      </li>
+      <li class="menu-item">
+        <img src="~/imagenes/nana.jpeg" asp-append-version="true" alt="Descripción" />
+        <div class="menu-details">
+          <h3 class="name">Nana´s cake</h3>
+          <p class="text">Pastelito incluido con fresas naturales </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
       <!-- detallitos-->
-      <section class="testimonials-section" id="testimonials">
-        <h2 class="section-title">nuestros mejores clientes </h2>
-        <div class="section-content">
-          <div class="slider-container swiper">
-            <div class="slider-wrapper">
-              <ul class="testimonials-list swiper-wrapper">
-                <li class="testimonial swiper-slide">
-                  <img src="~/imagenes/cabroportada.jpg" asp-append-version="true" alt="Descripción" class="user-image"/>
-                  <h3 class="name">bryan valdivia </h3>
-                  <i class="feedback">"amo los pasteles me encanta el diseño y la personalizacion"</i>
-                </li>
-                <li class="testimonial swiper-slide">
-                   <img src="~/imagenes/foto.jpeg" asp-append-version="true" alt="Descripción" class="user-image"/>
-                  <h3 class="name">michael zamudio</h3>
-                  <i class="feedback">los pasteles son dulces y ricos</i>
-                </li>
-                <li class="testimonial swiper-slide">
-                  <img src="~/imagenes/kevin.jpeg" asp-append-version="true" alt="Descripción" class="user-image"/>
-                  <h3 class="name">kevin gutierres</h3>
-                  <i class="feedback">me encanta el de vainilla</i>
-                </li>
-                <li class="testimonial swiper-slide">
-                  <img src="~/imagenes/emile.jpeg" asp-append-version="true" alt="Descripción" class="user-image"/>
-                  <h3 class="name">Emily Pasion</h3>
-                  <i class="feedback">tienen un rico sabor</i>
-                </li>
-                <li class="testimonial swiper-slide">
-                  <img src="~/imagenes/renzo.jpg" asp-append-version="true" alt="Descripción" class="user-image"/>
-                  <h3 class="name">Anthony Thompson</h3>
-                  <i class="feedback">son muy deliciosos</i>
-                </li>
-              </ul>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-slide-button swiper-button-prev"></div>
-              <div class="swiper-slide-button swiper-button-next"></div>
+<section class="testimonials-section" id="testimonials">
+    <h2 class="section-title text-center" style="color: black;">Lo que dicen nuestros clientes</h2>
+    <div class="section-content">
+        <div class="slider-container swiper">
+            <div class="swiper-wrapper">
+                @* Testimonio 1 *@
+                <div class="testimonial-card swiper-slide">
+                    <div class="user-info">
+                        <img src="~/imagenes/cabroportada.jpg" asp-append-version="true" alt="Bryan Valdivia" class="user-image rounded-full border-2 border-pink-300 shadow-md"/>
+                        <h3 class="user-name">Bryan Valdivia</h3>
+                    </div>
+                    <blockquote class="user-feedback">
+                        <p>"¡Amo los pasteles! Me encanta el diseño y la personalización. Son perfectos para cualquier ocasión especial."</p>
+                    </blockquote>
+                    <div class="rating text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                @* Testimonio 2 *@
+                <div class="testimonial-card swiper-slide">
+                    <div class="user-info">
+                        <img src="~/imagenes/foto.jpeg" asp-append-version="true" alt="Michael Zamudio" class="user-image rounded-full border-2 border-pink-300 shadow-md"/>
+                        <h3 class="user-name">Michael Zamudio</h3>
+                    </div>
+                    <blockquote class="user-feedback">
+                        <p>"Los pasteles de Sweet Nela son increíblemente dulces y ricos. ¡Siempre una delicia!"</p>
+                    </blockquote>
+                    <div class="rating text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i> @* Media estrella o una estrella menos si no es perfecto *@
+                    </div>
+                </div>
+
+                @* Testimonio 3 *@
+                <div class="testimonial-card swiper-slide">
+                    <div class="user-info">
+                        <img src="~/imagenes/kevin.jpeg" asp-append-version="true" alt="Kevin Gutierrez" class="user-image rounded-full border-2 border-pink-300 shadow-md"/>
+                        <h3 class="user-name">Kevin Gutierrez</h3>
+                    </div>
+                    <blockquote class="user-feedback">
+                        <p>"Me encanta el pastel de vainilla, ¡es mi favorito! La textura y el sabor son inigualables."</p>
+                    </blockquote>
+                    <div class="rating text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i> @* Media estrella *@
+                    </div>
+                </div>
+
+                @* Testimonio 4 *@
+                <div class="testimonial-card swiper-slide">
+                    <div class="user-info">
+                        <img src="~/imagenes/emile.jpeg" asp-append-version="true" alt="Emily Pasion" class="user-image rounded-full border-2 border-pink-300 shadow-md"/>
+                        <h3 class="user-name">Emily Pasion</h3>
+                    </div>
+                    <blockquote class="user-feedback">
+                        <p>"Siempre tienen un sabor delicioso y la presentación es hermosa. ¡Altamente recomendados!"</p>
+                    </blockquote>
+                    <div class="rating text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                @* Testimonio 5 *@
+                <div class="testimonial-card swiper-slide">
+                    <div class="user-info">
+                        <img src="~/imagenes/renzo.jpg" asp-append-version="true" alt="Anthony Thompson" class="user-image rounded-full border-2 border-pink-300 shadow-md"/>
+                        <h3 class="user-name">Anthony Thompson</h3>
+                    </div>
+                    <blockquote class="user-feedback">
+                        <p>"Son muy deliciosos y el servicio al cliente es excelente. ¡Volveré a pedir sin duda!"</p>
+                    </blockquote>
+                    <div class="rating text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            @* Paginación y flechas de navegación de Swiper *@
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-      </section>
+    </div>
+</section>
       <!--fotos-->
       <section class="gallery-section" id="gallery">
-        <h2 class="section-title">galeria de productos</h2>
+        <h2 class="section-title" style="color: white;">galeria de productos</h2>
         <div class="section-content">
           <ul class="gallery-list">
             <li class="gallery-item">
@@ -157,7 +221,7 @@
       </section>
       <!-- contactar -->
       <section class="contact-section" id="contact">
-        <h2 class="section-title">Contactanos</h2>
+        <h2 class="section-title" style="color: black;">Contactanos</h2>
         <div class="section-content">
           <ul class="contact-info-list">
             <li class="contact-info">
@@ -189,12 +253,13 @@
               <p>www.sweetnela.com</p>
             </li>
           </ul>
-          <form action="#" class="contact-form">
-            <input type="text" placeholder="Nombre" class="form-input" required />
-            <input type="email" placeholder="Email" class="form-input" required />
-            <textarea placeholder="Mensaje" class="form-input" required></textarea>
-            <button type="submit" class="button submit-button">Submit</button>
-          </form>
+<form method="get" asp-controller="Contacto" asp-action="Create" class="contact-form">
+  <input type="text" name="nombre" placeholder="Nombre" class="form-input" required />
+  <input type="email" name="email" placeholder="Email" class="form-input" required />
+  <textarea name="mensaje" placeholder="Mensaje" class="form-input" required></textarea>
+  <button type="submit" class="button submit-button bg-pink-500 text-white">Ir a Crear Contacto</button>
+</form>
+
         </div>
       </section>
       </body>

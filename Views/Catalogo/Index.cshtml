@@ -1,89 +1,87 @@
 ﻿@model IEnumerable<SweetNela.Models.Producto>
+
 @{
-    ViewData["Title"] = "Catalogo";
+    ViewData["Title"] = "Nuestro Catálogo - Sweet Nela"; // More engaging title
     double tipoCambio = ViewData["TipoCambioUSD"] != null ? Convert.ToDouble(ViewData["TipoCambioUSD"]) : 1;
 }
 
-}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7QbPyXy+GkchgSJL+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<div class="container-fluid">
-    <div class="sidebar-mobile d-md-none">
-        <button class="btn w-100" style="background-color:rgb(250, 250, 238); color: #000;" type="button" data-bs-toggle="collapse" data-bs-target="#mobileFilters" aria-expanded="false" aria-controls="mobileFilters">
-            Filtros <i class="fa-solid fa-filter ms-2"></i>
+<div class="catalog-page-container">
+    <div class="sidebar-mobile d-md-none mb-4">
+        <button class="btn btn-filter-toggle w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobileFilters" aria-expanded="false" aria-controls="mobileFilters">
+            Filtros <i class="fas fa-filter ms-2"></i>
         </button>
-        <div class="collapse" id="mobileFilters">
-            <div class="bg-light p-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#saboresSubfiltros" style="color: #000;">Sabores</a>
-                        <ul id="saboresSubfiltros" class="collapse subfiltros">
-                            <li><a href="#" class="d-block py-1 filter-item">Chocolate</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Vainilla</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Fresa</a></li>
-                        </ul>
+        <div class="collapse mt-2" id="mobileFilters">
+            <div class="filter-panel">
+                <ul class="filter-list">
+                    <li class="filter-group-item">
+                        <a class="filter-group-link" data-bs-toggle="collapse" href="#saboresSubfiltros">Sabores</a>
+                        <ul id="saboresSubfiltros" class="collapse filter-sublist">
+                            <li><a href="#" class="filter-option">Chocolate</a></li>
+                            <li><a href="#" class="filter-option">Vainilla</a></li>
+                            <li><a href="#" class="filter-option">Fresa</a></li>
+                            </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#tamanosSubfiltros" style="color: #000;">Tamaños</a>
-                        <ul id="tamanosSubfiltros" class="collapse subfiltros">
-                            <li><a href="#" class="d-block py-1 filter-item">Personal</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Mediano</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Grande</a></li>
-                        </ul>
+                    <li class="filter-group-item">
+                        <a class="filter-group-link" data-bs-toggle="collapse" href="#tamanosSubfiltros">Tamaños</a>
+                        <ul id="tamanosSubfiltros" class="collapse filter-sublist">
+                            <li><a href="#" class="filter-option">Personal</a></li>
+                            <li><a href="#" class="filter-option">Mediano</a></li>
+                            <li><a href="#" class="filter-option">Grande</a></li>
+                            </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#modelosSubfiltros" style="color: #000;">Modelos</a>
-                        <ul id="modelosSubfiltros" class="collapse subfiltros">
-                            <li><a href="#" class="d-block py-1 filter-item">Hora de Aventura</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Un Show Más</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Clarence</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">One Piece</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">Shawn Mendes</a></li>
-                            <li><a href="#" class="d-block py-1 filter-item">1D</a></li>
-                        </ul>
+                    <li class="filter-group-item">
+                        <a class="filter-group-link" data-bs-toggle="collapse" href="#modelosSubfiltros">Temáticas</a>
+                        <ul id="modelosSubfiltros" class="collapse filter-sublist">
+                            <li><a href="#" class="filter-option">Hora de Aventura</a></li>
+                            <li><a href="#" class="filter-option">Un Show Más</a></li>
+                            <li><a href="#" class="filter-option">Clarence</a></li>
+                            <li><a href="#" class="filter-option">One Piece</a></li>
+                            <li><a href="#" class="filter-option">Shawn Mendes</a></li>
+                            <li><a href="#" class="filter-option">1D</a></li>
+                            </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row g-4">
         <div class="col-md-3 d-none d-md-block">
-            <div class="sidebar vh-100 position-sticky top-0 d-flex flex-column" 
-                 style="background-color:rgb(250, 250, 238); color: #000;">
-                <div class="d-flex justify-content-center align-items-center p-3">
-                    <h4 class="m-0">Filtros</h4>
-                    <i class="fa-solid fa-filter ms-2 p-2" style="color: black; background-color: white; border-radius: 5px;"></i>
+            <div class="sidebar-desktop">
+                <div class="sidebar-header">
+                    <h4>Filtros</h4>
+                    <i class="fas fa-filter filter-icon-bg"></i>
                 </div>
-                <hr style="border: 8px solid #ccc; margin: 0;">
-                <div class="flex-grow-1" style="max-height: 60vh; overflow-y: auto; padding: 0 10px;">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#saboresSubfiltros" style="color: #000;">Sabores</a>
-                            <ul id="saboresSubfiltros" class="collapse subfiltros">
-                                <li><a href="#" class="d-block py-1 filter-item">Chocolate</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Vainilla</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Fresa</a></li>
+                <hr class="sidebar-divider">
+                <div class="sidebar-content-scroll">
+                    <ul class="filter-list">
+                        <li class="filter-group-item">
+                            <a class="filter-group-link" data-bs-toggle="collapse" href="#saboresSubfiltrosDesktop">Sabores</a>
+                            <ul id="saboresSubfiltrosDesktop" class="collapse show filter-sublist">
+                                <li><a href="#" class="filter-option">Chocolate</a></li>
+                                <li><a href="#" class="filter-option">Vainilla</a></li>
+                                <li><a href="#" class="filter-option">Fresa</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#tamanosSubfiltros" style="color: #000;">Tamaños</a>
-                            <ul id="tamanosSubfiltros" class="collapse subfiltros">
-                                <li><a href="#" class="d-block py-1 filter-item">Personal</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Mediano</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Grande</a></li>
+                        <li class="filter-group-item">
+                            <a class="filter-group-link" data-bs-toggle="collapse" href="#tamanosSubfiltrosDesktop">Tamaños</a>
+                            <ul id="tamanosSubfiltrosDesktop" class="collapse show filter-sublist">
+                                <li><a href="#" class="filter-option">Personal</a></li>
+                                <li><a href="#" class="filter-option">Mediano</a></li>
+                                <li><a href="#" class="filter-option">Grande</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#modelosSubfiltros" style="color: #000;">Modelos</a>
-                            <ul id="modelosSubfiltros" class="collapse subfiltros">
-                                <li><a href="#" class="d-block py-1 filter-item">Hora de Aventura</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Un Show Más</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Clarence</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">One Piece</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">Shawn Mendes</a></li>
-                                <li><a href="#" class="d-block py-1 filter-item">1D</a></li>
+                        <li class="filter-group-item">
+                            <a class="filter-group-link" data-bs-toggle="collapse" href="#modelosSubfiltrosDesktop">Temáticas</a>
+                            <ul id="modelosSubfiltrosDesktop" class="collapse show filter-sublist">
+                                <li><a href="#" class="filter-option">Hora de Aventura</a></li>
+                                <li><a href="#" class="filter-option">Un Show Más</a></li>
+                                <li><a href="#" class="filter-option">Clarence</a></li>
+                                <li><a href="#" class="filter-option">One Piece</a></li>
+                                <li><a href="#" class="filter-option">Shawn Mendes</a></li>
+                                <li><a href="#" class="filter-option">1D</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -91,71 +89,324 @@
             </div>
         </div>
 
-        <div class="col-md-9 p-3">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2 class="text-white">Catálogo</h2>
-            </div>
+        <div class="col-md-9">
+            <div class="catalog-header">
+                <h2 style="color: white;">Catálogo de Pasteles</h2>
+                </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
                 @foreach (var item in Model) {
                 <div class="col">
-                    <div class="card h-100 text-center position-relative overflow-hidden">
-                        <div class="position-relative">
-                            <img src="@item.ImageURL" class="card-img-top" alt="Producto 2">
-                            <button  class="btn btn-dark btn-sm rounded-circle position-absolute" style="bottom: 0px; right: 0px;">
-                                <a asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id">
-                                    <i class="fa-solid fa-plus text-white"></i>
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="@item.ImageURL" class="card-img-top" alt="Pastel de @item.Name">
+                            <div class="product-overlay-buttons">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-detail-overlay" title="Ver Detalles">
+                                    <i class="fas fa-eye"></i>
                                 </a>
-                            </button>
+                                <a asp-controller="Carrito" asp-action="Add" asp-route-id="@item.Id" class="btn btn-add-to-cart-overlay" title="Añadir al Carrito">
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title m-0">@Html.DisplayFor(modelItem => item.Name)</h5>
-<p class="card-text">
-    S/. @item.Price <br />
-USD $@String.Format("{0:0.00}", item.Price * (decimal)tipoCambio)
-</p>
-
-                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Detalle</a>
+                        <div class="card-body text-center">
+                            <h5 class="product-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                            <p class="product-price-display">
+                                <span class="price-soles" style="color: black;">S/. @item.Price</span> <br />
+                                <span class="price-usd">USD $@String.Format("{0:0.00}", item.Price * (decimal)tipoCambio)</span>
+                            </p>
+                            <a class="btn btn-view-details" asp-action="Details" asp-route-id="@item.Id">Ver Detalles</a>
                         </div>
                     </div>
                 </div>
                 }
-        
+                @if (!Model.Any())
+                {
+                    <div class="col-12 text-center py-5">
+                        <p class="text-muted">¡Lo sentimos! No hay productos disponibles en este momento o que coincidan con tus filtros.</p>
+                        <a href="@Url.Action("Index", "Catalogo")" class="btn btn-primary-alt mt-3">Ver todos los productos</a>
+                    </div>
+                }
             </div>
         </div>
     </div>
 </div>
 
-<style>
-    .filter-item {
-        color: #000;
-        text-decoration: none;
-    }
-    .filter-item:hover {
-        background-color: #D3D3D3;
-        border-radius: 5px;
-    }
-    .nav-link:hover {
-        background-color: #D3D3D3;
-        border-radius: 5px;
-    }
-    .subfiltros {
-        list-style-type: disc;
-        list-style-position: inside;
-        padding-left: 20px;
-        text-align: left;
-    }
-    .subfiltros li {
-        display: flex;
-        align-items: center;
-    }
-    .subfiltros li a {
-        text-decoration: none;
-        color: #000;
-        display: inline-block;
-        padding-left: 5px;
-    }
-    .sidebar-mobile {
-        margin-bottom: 20px;
-    }
-</style>
 
+<style>
+.catalog-page-container {
+    padding: 20px;
+}
+
+.sidebar-mobile {
+    margin-bottom: 20px;
+}
+
+.btn-filter-toggle {
+    background-color: #ff9fb3;
+    color: #555;
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filter-toggle:hover {
+    background-color: #ff9fb3;
+    color: #fff;
+}
+
+.filter-panel {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.sidebar-desktop {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sidebar-header h4 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.filter-icon-bg {
+    background-color: #ffb6c1;
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.sidebar-divider {
+    border-top: 2px solid #eee;
+    margin: 15px 0;
+}
+
+.sidebar-content-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-group-item {
+    margin-bottom: 10px;
+}
+
+.filter-group-link {
+    display: block;
+    padding: 8px 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 5px;
+}
+
+.filter-group-link:hover {
+    background-color: #f0f0f0;
+    color: #ff69b4;
+}
+
+.filter-sublist {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.filter-option {
+    display: block;
+    padding: 6px 10px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 5px;
+}
+
+.filter-option:hover {
+    background-color: #ffe6f0;
+    color: #ff69b4;
+}
+
+.catalog-header {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.catalog-header h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 100%;
+}
+
+.product-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-container img {
+    transform: scale(1.05);
+}
+
+.product-overlay-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.product-card:hover .product-overlay-buttons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-detail-overlay,
+.btn-add-to-cart-overlay {
+    background-color: rgba(255, 105, 180, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-detail-overlay:hover,
+.btn-add-to-cart-overlay:hover {
+    background-color: #e05e9e;
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.product-price-display {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.price-soles {
+    font-weight: bold;
+    color: #ff69b4;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.price-usd {
+    font-size: 0.9em;
+    color: #888;
+    display: block;
+}
+
+.btn-view-details {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-view-details:hover {
+    background-color: #5a6268;
+}
+
+.btn-primary-alt {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary-alt:hover {
+    background-color: #e05e9e;
+}
+</style>

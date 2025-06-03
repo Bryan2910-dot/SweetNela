@@ -4,25 +4,47 @@
     ViewData["Title"] = "Contacto";
 }
 
-<h1 class="text-center text-white nav-link mb-4">Contacto</h1>
+<h1 class="text-center text-white nav-link mb-4 display-4">Contáctanos</h1>
 
 <div class="container mb-5">
-    <div class="bg-white text-dark p-4 rounded shadow" style="max-width: 1100px; margin: auto;">
+    <div class="bg-white text-dark p-4 rounded shadow-lg" style="max-width: 1100px; margin: auto;">
         <div class="row">
+            <!-- Columna de información y carrusel -->
             <div class="col-md-5 mb-4 mb-md-0">
-                <p><strong>Dirección:</strong> San Juan de Miraflores</p>
-                <p><strong>Email:</strong> sweetnela@gmail.com</p>
-                <p><strong>Teléfono:</strong> 926 635 137</p>
-                <p><strong>Lunes a Viernes:</strong> 9:00 AM - 5:00 PM</p>
-                <p><strong>Sábados:</strong> 10:00 AM - 3:00 PM</p>
-                <p><strong>Domingos:</strong> Cerrado</p>
-                <p>www.sweetnela.com</p>
+                <div id="carruselTortas" class="carousel slide mb-4 rounded shadow" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded">
+                        @for (int i = 1; i <= 6; i++)
+                        {
+                            <div class="carousel-item @(i == 1 ? "active" : "")">
+<img src="~/imagenes/@($"{i}.jpeg")" class="d-block w-100 rounded" alt="Torta @i">
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carruselTortas" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carruselTortas" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+
+                <div class="ps-2">
+                    <p><i class="bi bi-geo-alt-fill text-danger me-2"></i> <strong>Dirección:</strong> San Juan de Miraflores</p>
+                    <p><i class="bi bi-envelope-fill text-danger me-2"></i> <strong>Email:</strong> sweetnela@gmail.com</p>
+                    <p><i class="bi bi-telephone-fill text-danger me-2"></i> <strong>Teléfono:</strong> 926 635 137</p>
+                    <p><i class="bi bi-clock-fill text-danger me-2"></i> <strong>Lunes a Viernes:</strong> 9:00 AM - 5:00 PM</p>
+                    <p><i class="bi bi-clock-fill text-danger me-2"></i> <strong>Sábados:</strong> 10:00 AM - 3:00 PM</p>
+                    <p><i class="bi bi-x-circle-fill text-danger me-2"></i> <strong>Domingos:</strong> Cerrado</p>
+                    <p><i class="bi bi-globe2 text-danger me-2"></i> www.sweetnela.com</p>
+                </div>
             </div>
 
+            <!-- Columna de formulario o chat -->
             <div class="col-md-7">
                 @if (!User.Identity.IsAuthenticated)
                 {
-                    <!-- Formulario para usuarios NO autenticados -->
                     <form asp-action="Create" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger text-center"></div>
 
@@ -71,10 +93,9 @@
                 }
                 else
                 {
-                    <!-- Chat para usuarios autenticados -->
-                    <h4 class="text-center mb-3">Chat con Representante de SweetNela</h4>
+                    <h4 class="text-center mb-3">Chat con SweetNela</h4>
 
-                    <div class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+                    <div class="border p-3 mb-3 rounded" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
                         @if (Model.Mensajes != null && Model.Mensajes.Any())
                         {
                             foreach (var msg in Model.Mensajes.OrderBy(m => m.FechaEnvio))
