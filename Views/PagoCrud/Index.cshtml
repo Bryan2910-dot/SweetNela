@@ -8,22 +8,31 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-controller="Catalogo" asp-action="Index">Realizar nuevo pedido</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Fecha de Pago
+                @Html.DisplayNameFor(model => model.MontoTotal)
             </th>
             <th>
-                Monto Total
+                @Html.DisplayNameFor(model => model.PaymentDate)
             </th>
             <th>
-                Estado
+                @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                Usuario
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayPalPaymentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayPalPayerId)
             </th>
             <th></th>
         </tr>
@@ -32,18 +41,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PaymentDate)
+                @Html.DisplayFor(modelItem => item.MontoTotal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MontoTotal)
+                @Html.DisplayFor(modelItem => item.PaymentDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserName) <!-- Cambiado a User.UserName -->
+                @Html.DisplayFor(modelItem => item.User.Id)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Order.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayPalPaymentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayPalPayerId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>

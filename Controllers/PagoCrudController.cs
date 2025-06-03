@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SweetNela.Data;
 using SweetNela.Models;
@@ -23,7 +24,8 @@ namespace SweetNela.Controllers
         // GET: PagoCrud
         public async Task<IActionResult> Index()
         {
-            return View(await _context.DbSetPago.Include(p => p.User).ToListAsync());
+            var applicationDbContext = _context.DbSetPago.Include(p => p.Order).Include(p => p.User);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: PagoCrud/Details/5
@@ -35,6 +37,7 @@ namespace SweetNela.Controllers
             }
 
             var pago = await _context.DbSetPago
+                .Include(p => p.Order)
                 .Include(p => p.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pago == null)
@@ -48,13 +51,17 @@ namespace SweetNela.Controllers
         // GET: PagoCrud/Create
         public IActionResult Create()
         {
+            ViewData["OrderId"] = new SelectList(_context.DbSetOrden, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
         // POST: PagoCrud/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PaymentDate,MontoTotal,Status,PayPalPaymentId,PayPalPayerId,UserId")] Pago pago)
+        public async Task<IActionResult> Create([Bind("Id,MontoTotal,PaymentDate,Status,UserId,OrderId,PayPalPaymentId,PayPalPayerId")] Pago pago)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +69,8 @@ namespace SweetNela.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrderId"] = new SelectList(_context.DbSetOrden, "Id", "Id", pago.OrderId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", pago.UserId);
             return View(pago);
         }
 
@@ -78,13 +87,17 @@ namespace SweetNela.Controllers
             {
                 return NotFound();
             }
+            ViewData["OrderId"] = new SelectList(_context.DbSetOrden, "Id", "Id", pago.OrderId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", pago.UserId);
             return View(pago);
         }
 
         // POST: PagoCrud/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PaymentDate,MontoTotal,Status,PayPalPaymentId,PayPalPayerId,UserId")] Pago pago)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MontoTotal,PaymentDate,Status,UserId,OrderId,PayPalPaymentId,PayPalPayerId")] Pago pago)
         {
             if (id != pago.Id)
             {
@@ -111,6 +124,8 @@ namespace SweetNela.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrderId"] = new SelectList(_context.DbSetOrden, "Id", "Id", pago.OrderId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", pago.UserId);
             return View(pago);
         }
 
@@ -123,6 +138,7 @@ namespace SweetNela.Controllers
             }
 
             var pago = await _context.DbSetPago
+                .Include(p => p.Order)
                 .Include(p => p.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pago == null)

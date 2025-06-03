@@ -591,14 +591,14 @@ namespace SweetNela.Migrations
                     b.Navigation("Producto");
                 });
 
-            modelBuilder.Entity("SweetNela.Models.Orden", b =>
-                {
-                    b.Navigation("Pago");
-
             modelBuilder.Entity("SweetNela.Models.Contacto", b =>
                 {
                     b.Navigation("Mensajes");
+                });
 
+            modelBuilder.Entity("SweetNela.Models.Orden", b =>
+                {
+                    b.Navigation("Pago");
                 });
 #pragma warning restore 612, 618
         }
