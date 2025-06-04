@@ -3,56 +3,97 @@
 @{
     Layout = "_LayoutAdmin";
     ViewData["Title"] = "Productos";
+    var colorPrincipal = "#6c143c";
 }
 
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    .btn-nela {
+        background-color: @colorPrincipal;
+        color: white;
+        border: none;
+    }
+
+    .btn-nela:hover {
+        background-color: #500f2e;
+        color: white;
+    }
+
+    .table thead {
+        background-color: @colorPrincipal;
+        color: white;
+    }
+
+    .badge-activo {
+        background-color: #198754;
+    }
+
+    .badge-inactivo {
+        background-color: #6c757d;
+    }
+
+    .producto-img {
+        max-height: 80px;
+        border-radius: 0.5rem;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary">Gestión de Productos</h2>
-        <a asp-action="Create" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Crear Nueva Torta
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold" style="color: @colorPrincipal;">Gestión de Productos</h2>
+        <a asp-action="Create" class="btn btn-nela shadow-sm">
+            <i class="bi bi-plus-circle me-1"></i> Crear Nueva Torta
         </a>
     </div>
 
-    <table class="table table-striped table-hover table-bordered shadow-sm">
-        <thead class="table-dark">
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Status</th>
-                <th>Imagen</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>S/@Html.DisplayFor(modelItem => item.Price)</td>
-                <td>
-                    <span class="badge @(item.Status == "Activo" ? "bg-success" : "bg-secondary")">
-                        @item.Status
-                    </span>
-                </td>
-                <td>
-                    <img src="@item.ImageURL" alt="Imagen de @item.Name" class="img-thumbnail" style="max-height: 80px;" />
-                </td>
-                <td>
-                    <div class="btn-group">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-pencil-square"></i> Editar
-                        </a>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
-                            <i class="bi bi-info-circle"></i> Detalles
-                        </a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">
-                            <i class="bi bi-trash"></i> Eliminar
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Imagen</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>S/ @item.Price.ToString("0.00")</td>
+                        <td>
+                            <span class="badge @(item.Status == "Activo" ? "badge-activo" : "badge-inactivo")">
+                                @item.Status
+                            </span>
+                        </td>
+                        <td>
+                            <img src="@item.ImageURL" alt="Imagen de @item.Name" class="producto-img shadow-sm" />
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" 
+                                   onclick="return confirm('¿Estás seguro que deseas eliminar este producto?');">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
-

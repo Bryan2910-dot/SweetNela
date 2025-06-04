@@ -2,62 +2,69 @@
 
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Pago";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4" style="color:#6c143c;">Editar Pago</h1>
 
-<h4>Pago</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="MontoTotal" class="control-label"></label>
-                <input asp-for="MontoTotal" class="form-control" />
-                <span asp-validation-for="MontoTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PaymentDate" class="control-label"></label>
-                <input asp-for="PaymentDate" class="form-control" />
-                <span asp-validation-for="PaymentDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderId" class="control-label"></label>
-                <select asp-for="OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
-                <span asp-validation-for="OrderId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PayPalPaymentId" class="control-label"></label>
-                <input asp-for="PayPalPaymentId" class="form-control" />
-                <span asp-validation-for="PayPalPaymentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PayPalPayerId" class="control-label"></label>
-                <input asp-for="PayPalPayerId" class="form-control" />
-                <span asp-validation-for="PayPalPayerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="bg-white p-4 rounded shadow-sm">
+    <h4 style="color:#6c143c;">Detalles del Pago</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="MontoTotal" class="form-label" style="color:#6c143c;"></label>
+                    <input asp-for="MontoTotal" class="form-control" />
+                    <span asp-validation-for="MontoTotal" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PaymentDate" class="form-label" style="color:#6c143c;"></label>
+                    <input asp-for="PaymentDate" type="datetime-local" class="form-control" />
+                    <span asp-validation-for="PaymentDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Status" class="form-label" style="color:#6c143c;"></label>
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="UserId" class="form-label" style="color:#6c143c;"></label>
+                    <select asp-for="UserId" class="form-select" asp-items="ViewBag.UserId"></select>
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="OrderId" class="form-label" style="color:#6c143c;"></label>
+                    <select asp-for="OrderId" class="form-select" asp-items="ViewBag.OrderId"></select>
+                    <span asp-validation-for="OrderId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PayPalPaymentId" class="form-label" style="color:#6c143c;"></label>
+                    <input asp-for="PayPalPaymentId" class="form-control" />
+                    <span asp-validation-for="PayPalPaymentId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="PayPalPayerId" class="form-label" style="color:#6c143c;"></label>
+                    <input asp-for="PayPalPayerId" class="form-control" />
+                    <span asp-validation-for="PayPalPayerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" style="background-color:#6c143c; border:none;" />
+                    <a asp-action="Index" class="btn btn-secondary ms-2">Volver a la lista</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
