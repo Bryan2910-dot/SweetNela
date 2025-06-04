@@ -2,71 +2,95 @@
 
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pagos";
+    var primaryColor = "#6c143c";
 }
 
-<h1>Index</h1>
+<style>
+    body {
+        background-color: white;
+        color: #333;
+    }
+    h1 {
+        color: @primaryColor;
+        margin-bottom: 1.5rem;
+    }
+    .table thead {
+        background-color: @primaryColor;
+        color: white;
+    }
+    .btn-primary-custom {
+        background-color: @primaryColor;
+        border-color: @primaryColor;
+        color: white;
+    }
+    .btn-primary-custom:hover {
+        background-color: darken(@primaryColor, 10%);
+        border-color: darken(@primaryColor, 10%);
+        color: white;
+    }
+    .badge-status-completado {
+        background-color: @primaryColor;
+        color: white;
+    }
+    .btn-group .btn {
+        min-width: 36px;
+    }
+</style>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<h1>Lista de Pagos</h1>
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-primary-custom">
+        <i class="bi bi-plus-circle"></i> Crear Nuevo Pago
+    </a>
+</div>
+
+<table class="table table-bordered table-hover align-middle">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MontoTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaymentDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PayPalPaymentId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PayPalPayerId)
-            </th>
-            <th></th>
+            <th>Monto Total</th>
+            <th>Fecha de Pago</th>
+            <th>Estado</th>
+            <th>Usuario</th>
+            <th>Orden</th>
+            <th>Pago PayPal ID</th>
+            <th>Pagador PayPal ID</th>
+            <th style="width:150px;">Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MontoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaymentDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PayPalPaymentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PayPalPayerId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>S/@item.MontoTotal.ToString("F2")</td>
+                <td>@item.PaymentDate.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <span class="badge @(item.Status == "Completado" ? "badge-status-completado" : "bg-warning text-dark")">
+                        @item.Status
+                    </span>
+                </td>
+                <td>@item.User?.Id ?? "N/A"</td>
+                <td>@item.Order?.Id ?? "N/A"</td>
+                <td>@item.PayPalPaymentId</td>
+                <td>@item.PayPalPayerId</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Acciones">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm" title="Editar">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm" title="Detalles">
+                            <i class="bi bi-info-circle"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm" title="Eliminar">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

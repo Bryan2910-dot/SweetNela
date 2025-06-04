@@ -2,45 +2,83 @@
 
 @{
     Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Nueva Torta";
+    var colorPrincipal = "#6c143c";
 }
 
-<h1>Crear Nueva torta</h1>
+<style>
+    .form-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+    .form-title {
+        color: @colorPrincipal;
+        font-weight: 700;
+    }
+
+    .btn-nela {
+        background-color: @colorPrincipal;
+        color: white;
+        border: none;
+    }
+
+    .btn-nela:hover {
+        background-color: #500f2e;
+    }
+
+    .control-label {
+        font-weight: 600;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="form-title mb-4">Crear Nueva Torta</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-container">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label">Nombre</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Price" class="control-label">Precio</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Status" class="control-label">Estado</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="">-- Seleccione Estado --</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label asp-for="ImageURL" class="control-label">URL de Imagen</label>
+                        <input asp-for="ImageURL" class="form-control" />
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                        <input type="submit" value="Guardar Torta" class="btn btn-nela" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageURL" class="control-label"></label>
-                <input asp-for="ImageURL" class="form-control" />
-                <span asp-validation-for="ImageURL" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Regresar a la lista de Productos</a>
 </div>
 
 @section Scripts {

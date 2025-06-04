@@ -3,40 +3,74 @@
 @{
     Layout = "_LayoutAdmin";
     ViewData["Title"] = "Registro de Contactos";
+    var colorPrincipal = "#6c143c";
 }
 
-<h1 class="text-primary">@ViewData["Title"]</h1>
+<!-- Asegúrate de tener Bootstrap Icons en _LayoutAdmin.cshtml -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">Crear Nuevo Contacto</a>
-</p>
+<style>
+    .btn-custom {
+        background-color: @colorPrincipal;
+        color: white;
+    }
+    .btn-custom:hover {
+        background-color: #500f2e;
+        color: white;
+    }
+    .table-custom thead {
+        background-color: @colorPrincipal;
+        color: white;
+    }
+    .text-custom {
+        color: @colorPrincipal;
+    }
+    .border-custom {
+        border-color: @colorPrincipal !important;
+    }
+</style>
 
-<table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Nombres)</th>
-            <th>@Html.DisplayNameFor(model => model.Email)</th>
-            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
-            <th>@Html.DisplayNameFor(model => model.Mensaje)</th>
-            <th>@Html.DisplayNameFor(model => model.Respuesta)</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
-                <td>@Html.DisplayFor(modelItem => item.Mensaje)</td>
-                <td>@Html.DisplayFor(modelItem => item.Respuesta)</td>
-                <td>
-                    <a class="btn btn-sm btn-info me-1" asp-action="Details" asp-route-id="@item.Id" title="Detalles">Responder</a>
-                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id" title="Eliminar" onclick="return confirm('¿Seguro que deseas eliminar este contacto?');">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container py-4 bg-white rounded shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-custom mb-0">@ViewData["Title"]</h2>
+        <a class="btn btn-custom" asp-action="Create">
+            <i class="bi bi-plus-circle me-1"></i> Nuevo Contacto
+        </a>
+    </div>
 
+    <div class="table-responsive">
+        <table class="table table-hover align-middle table-bordered table-custom">
+            <thead class="text-center">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Nombres)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+                    <th>@Html.DisplayNameFor(model => model.Mensaje)</th>
+                    <th>@Html.DisplayNameFor(model => model.Respuesta)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nombres)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                        <td class="text-truncate" style="max-width: 200px;">@Html.DisplayFor(modelItem => item.Mensaje)</td>
+                        <td class="text-truncate" style="max-width: 200px;">@Html.DisplayFor(modelItem => item.Respuesta)</td>
+                        <td class="text-center">
+                            <a class="btn btn-outline-custom btn-sm me-2 border-custom" style="color:@colorPrincipal;" asp-action="Details" asp-route-id="@item.Id" title="Responder">
+                                <i class="bi bi-chat-left-text me-1"></i>Responder
+                            </a>
+                            <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"
+                               onclick="return confirm('¿Seguro que deseas eliminar este contacto?');">
+                                <i class="bi bi-trash me-1"></i>Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

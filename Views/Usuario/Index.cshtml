@@ -5,45 +5,70 @@
     ViewData["Title"] = "Usuarios";
 }
 
-<div class="container mt-4">
+<style>
+    .custom-header {
+        background-color: #6c143c !important;
+        color: white !important;
+    }
+    .btn-primary-custom {
+        background-color: #6c143c;
+        border-color: #6c143c;
+        color: white;
+    }
+    .btn-primary-custom:hover {
+        background-color: #55102b;
+        border-color: #55102b;
+        color: white;
+    }
+    .btn-outline-primary-custom {
+        color: #6c143c;
+        border-color: #6c143c;
+    }
+    .btn-outline-primary-custom:hover {
+        background-color: #6c143c;
+        color: white;
+    }
+</style>
+
+<div class="container mt-4 bg-white p-4 rounded shadow-sm">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary">Usuarios Registrados</h2>
-        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-success">
-            <i class="bi bi-person-plus-fill"></i> Registrar Usuario
+        <h2 style="color: #6c143c;">Usuarios Registrados</h2>
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary-custom">
+            Registrar Usuario
         </a>
     </div>
 
     <table class="table table-striped table-hover table-bordered shadow-sm">
-        <thead class="table-dark">
+        <thead class="custom-header">
             <tr>
                 <th>@Html.DisplayNameFor(model => model.UserName)</th>
                 <th>@Html.DisplayNameFor(model => model.Email)</th>
                 <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
-                <th>Acciones</th>
+                <th class="text-center" style="width: 180px;">Acciones</th>
             </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-                <td>
-                    <div class="btn-group">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-pencil-square"></i> Editar
-                        </a>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
-                            <i class="bi bi-info-circle"></i> Detalles
-                        </a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">
-                            <i class="bi bi-trash"></i> Eliminar
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@(string.IsNullOrEmpty(item.PhoneNumber) ? "—" : item.PhoneNumber)</td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group" aria-label="Acciones usuario">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary-custom" title="Editar usuario">
+                                Editar
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="Ver detalles">
+                                Detalles
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Eliminar usuario">
+                                Eliminar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

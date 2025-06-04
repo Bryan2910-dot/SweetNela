@@ -1,26 +1,83 @@
 @model SweetNela.Models.Contacto
+
 @{
     Layout = "_LayoutAdmin";
     ViewData["Title"] = "Chat con " + Model.Nombres;
+    var colorPrincipal = "#6c143c";
 }
 
-<h2>@ViewData["Title"]</h2>
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-<div class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
-    @foreach (var msg in Model.Mensajes.OrderBy(m => m.FechaEnvio))
-    {
-        <div class="mb-2">
-            <strong>@msg.Remitente:</strong> @msg.Contenido <br />
-            <small class="text-muted">@msg.FechaEnvio.ToString("g")</small>
-        </div>
+<style>
+    .chat-box {
+        height: 350px;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        padding: 1rem;
     }
-</div>
 
-<form asp-action="EnviarMensaje" method="post">
-    <input type="hidden" name="ContactoId" value="@ViewBag.ContactoId" />
-    <input type="hidden" name="Remitente" value="Admin" />
-    <div class="mb-2">
-        <textarea name="Contenido" class="form-control" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+    .chat-message {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        max-width: 80%;
+    }
+
+    .chat-remitente {
+        background-color: #e2e3e5;
+        align-self: flex-start;
+    }
+
+    .chat-admin {
+        background-color: @colorPrincipal;
+        color: white;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+    .chat-time {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-top: 0.25rem;
+    }
+
+    .btn-custom {
+        background-color: @colorPrincipal;
+        color: white;
+    }
+
+    .btn-custom:hover {
+        background-color: #500f2e;
+        color: white;
+    }
+</style>
+
+<div class="container py-4">
+    <h3 class="text-custom mb-4"><i class="bi bi-chat-dots me-2"></i>@ViewData["Title"]</h3>
+
+    <div class="chat-box d-flex flex-column mb-4">
+        @foreach (var msg in Model.Mensajes.OrderBy(m => m.FechaEnvio))
+        {
+            var esAdmin = msg.Remitente == "Admin";
+            <div class="chat-message @(esAdmin ? "chat-admin" : "chat-remitente")">
+                <div><strong>@msg.Remitente</strong></div>
+                <div>@msg.Contenido</div>
+                <div class="chat-time">@msg.FechaEnvio.ToString("g")</div>
+            </div>
+        }
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+
+    <form asp-action="EnviarMensaje" method="post">
+        <input type="hidden" name="ContactoId" value="@ViewBag.ContactoId" />
+        <input type="hidden" name="Remitente" value="Admin" />
+        <div class="mb-3">
+            <textarea name="Contenido" class="form-control" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom">
+            <i class="bi bi-send-fill me-1"></i> Enviar
+        </button>
+    </form>
+</div>
