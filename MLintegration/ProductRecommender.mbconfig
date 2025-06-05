@@ -1,0 +1,263 @@
+﻿{
+  "Scenario": "Recommendation",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\USUARIO\\Downloads\\ProyectoEspVero\\SweetNela\\MLExcel\\",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "userId",
+        "ColumnPurpose": "User",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "productId",
+        "ColumnPurpose": "Item",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Label",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -2.4326319735516662,
+        "RuntimeInSeconds": 2.105,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "userId",
+            "MatrixRowIndexColumnName": "productId",
+            "ApproximationRank": 17,
+            "LearningRate": 0.24064558890555368,
+            "NumberOfIterations": 253,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId"
+          },
+          "e4": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -2.4351704465361146,
+        "RuntimeInSeconds": 0.199,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "userId",
+            "MatrixRowIndexColumnName": "productId",
+            "ApproximationRank": 13,
+            "LearningRate": 0.33440454347790183,
+            "NumberOfIterations": 22,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId"
+          },
+          "e4": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -2.4612181295630342,
+        "RuntimeInSeconds": 2.165,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "userId",
+            "MatrixRowIndexColumnName": "productId",
+            "ApproximationRank": 17,
+            "LearningRate": 0.26700666028447573,
+            "NumberOfIterations": 259,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId"
+          },
+          "e4": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -2.4718315756356795,
+        "RuntimeInSeconds": 3.157,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "userId",
+            "MatrixRowIndexColumnName": "productId",
+            "ApproximationRank": 11,
+            "LearningRate": 0.15735336080479798,
+            "NumberOfIterations": 372,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId"
+          },
+          "e4": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -2.4991462774650737,
+        "RuntimeInSeconds": 2.149,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "userId",
+            "MatrixRowIndexColumnName": "productId",
+            "ApproximationRank": 17,
+            "LearningRate": 0.23522680306281588,
+            "NumberOfIterations": 253,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "userId",
+            "InputColumnName": "userId"
+          },
+          "e4": {
+            "OutputColumnName": "productId",
+            "InputColumnName": "productId"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "MapValueToKey",
+      "e1": "MapValueToKey",
+      "e2": "MatrixFactorization",
+      "e3": "MapKeyToValue",
+      "e4": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * e4",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\USUARIO\\Downloads\\ProyectoEspVero\\SweetNela\\MLintegration\\ProductRecommender.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RecommendationTrainingOption",
+    "TrainingTime": 100,
+    "LabelColumn": "Label",
+    "UserIdColumn": "userId",
+    "ItemIdColumn": "productId",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

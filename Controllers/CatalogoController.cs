@@ -25,7 +25,7 @@ public CatalogoController(
     _exchange = exchange;
 }
 
-        [AllowAnonymous]
+[AllowAnonymous]
 public async Task<IActionResult> Index()
 {
     var productos = _context.DbSetProducto.ToList();
