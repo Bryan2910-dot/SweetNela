@@ -222,6 +222,50 @@ namespace SweetNela.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("SweetNela.Models.Comentario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DetalleOrdenId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("OrdenId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("integer")
+                        .HasColumnName("rating");
+
+                    b.Property<string>("Sentimiento")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("sentimiento");
+
+                    b.Property<string>("Texto")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)")
+                        .HasColumnName("comentario");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DetalleOrdenId")
+                        .IsUnique();
+
+                    b.HasIndex("OrdenId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("t_comentario");
+                });
+
             modelBuilder.Entity("SweetNela.Models.Contacto", b =>
                 {
                     b.Property<int>("Id")
@@ -530,6 +574,31 @@ namespace SweetNela.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SweetNela.Models.Comentario", b =>
+                {
+                    b.HasOne("SweetNela.Models.DetalleOrden", "DetalleOrden")
+                        .WithOne("Comentario")
+                        .HasForeignKey("SweetNela.Models.Comentario", "DetalleOrdenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SweetNela.Models.Orden", "Orden")
+                        .WithMany()
+                        .HasForeignKey("OrdenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("DetalleOrden");
+
+                    b.Navigation("Orden");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SweetNela.Models.DetalleOrden", b =>
                 {
                     b.HasOne("SweetNela.Models.Orden", "Orden")
@@ -594,6 +663,11 @@ namespace SweetNela.Migrations
             modelBuilder.Entity("SweetNela.Models.Contacto", b =>
                 {
                     b.Navigation("Mensajes");
+                });
+
+            modelBuilder.Entity("SweetNela.Models.DetalleOrden", b =>
+                {
+                    b.Navigation("Comentario");
                 });
 
             modelBuilder.Entity("SweetNela.Models.Orden", b =>

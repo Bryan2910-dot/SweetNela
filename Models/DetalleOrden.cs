@@ -14,5 +14,7 @@ namespace SweetNela.Models
         public int Cantidad { get; set; }
         public Decimal Precio { get; set; }
         public Orden? Orden { get; set; }
+        public Comentario? Comentario { get; set; }
+
     }
 }

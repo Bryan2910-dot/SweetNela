@@ -1,0 +1,44 @@
+@model List<SweetNela.Models.DetalleOrden>
+
+@{
+    ViewData["Title"] = "Comentar mis productos";
+}
+
+<style>
+    body, h2, table, th, td, p, a {
+        color: white !important;
+    }
+</style>
+
+<h2>Comentar productos comprados</h2>
+
+@if (!Model.Any())
+{
+    <p>No tienes productos pendientes por comentar.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Producto?.Name</td>
+                <td>@item.Precio.ToString("C")</td>
+                <td>@item.Cantidad</td>
+                <td>
+                    <a asp-action="Crear" asp-route-id="@item.Id" class="btn btn-primary">Comentar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
