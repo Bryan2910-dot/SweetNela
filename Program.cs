@@ -6,9 +6,12 @@ using SweetNela.Integration.Exchange;
 using SweetNela.Service;
 using Microsoft.OpenApi.Models;
 using SweetNela.Hubs;
+using Microsoft.Extensions.ML;
+using MLSentimiento;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddPredictionEnginePool<MLSentimiento.MLSentimiento.ModelInput, MLSentimiento.MLSentimiento.ModelOutput>()
+    .FromFile("MLSentimiento.mlnet");
 // SignalR
 builder.Services.AddSignalR();
 
