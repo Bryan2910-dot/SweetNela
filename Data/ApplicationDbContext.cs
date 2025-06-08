@@ -18,6 +18,7 @@ namespace SweetNela.Data{
         public DbSet<Orden> DbSetOrden { get; set; }
         public DbSet<DetalleOrden> DbSetDetalleOrden { get; set; }
         public DbSet<MensajeChat> DbSetMensajeChat { get; set; }
+        public DbSet<Comentario> DbComentario { get; set; }
 
     }
 

@@ -10,7 +10,7 @@ namespace MLSentimiento
     public partial class MLSentimiento
     {
         /// <summary>
-        /// model input class for MLRecomendacion.
+        /// model input class for MLSentimiento.
         /// </summary>
         #region model input class
         public class ModelInput
@@ -28,7 +28,7 @@ namespace MLSentimiento
         #endregion
 
         /// <summary>
-        /// model output class for MLRecomendacion.
+        /// model output class for MLSentimiento.
         /// </summary>
         #region model output class
         public class ModelOutput
@@ -52,7 +52,7 @@ namespace MLSentimiento
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("MLRecomendacion.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath("MLSentimiento.mlnet");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
