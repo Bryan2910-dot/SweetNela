@@ -21,19 +21,18 @@ namespace SweetNela.Models
         public String? Fecha { get; set; }
         public String? Hora { get; set; }
         public String? Lugar { get; set; }
-
         public double Calcular1()
         {
             double resultado = 0;
             switch (Tamaño)
             {
-                case "Pequeño":
+                case "Mediano":
                     resultado += 10;
                     break;
-                case "Mediano":
+                case "Grande":
                     resultado += 20;
                     break;
-                case "Grande":
+                case "Extra Grande":
                     resultado += 30;
                     break;
             }

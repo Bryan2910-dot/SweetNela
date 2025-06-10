@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SweetNela.Controllers
 {
-    
+
     public class PedidoMejoraController : Controller
     {
         private readonly ILogger<PedidoMejoraController> _logger;
@@ -64,29 +64,30 @@ namespace SweetNela.Controllers
                     _context.DbSetPedidoMejora.Add(pedido);
                     _context.SaveChanges();
 
+                    // Obtén el UserId del usuario autenticado
+                    var userId = _userManager.GetUserId(User);
+
                     // Crea una nueva entrada para la tabla PreOrden
                     var preOrden = new PreOrden
                     {
-                        Precio = (decimal)pedido.SumaTotal, // Asigna SumaTotal al atributo Precio
-                        UserName = _userManager.GetUserName(User),          // Asigna el valor de Lugar al atributo UserName
-                        Cantidad = 1,                      // Puedes ajustar la cantidad según sea necesario
-                        Status = "PENDIENTE"               // Estado inicial
+                        Precio = (decimal)pedido.SumaTotal,
+                        UserName = _userManager.GetUserName(User),
+                        UserId = userId,
+                        Cantidad = 1,
+                        Status = "PENDIENTE"
                     };
 
                     // Guarda en la tabla PreOrden
                     _context.DbSetPreOrden.Add(preOrden);
                     _context.SaveChanges();
 
-                    // Prepara el mensaje para mostrar en el HTML
                     mensaje = $"El pedido se ha creado correctamente con un total de: {pedido.SumaTotal}";
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores
                     mensaje = $"Ocurrió un error: {ex.Message}";
                 }
 
-                // Envía el resultado al HTML
                 ViewData["Resultado"] = mensaje;
             }
             else
@@ -102,5 +103,8 @@ namespace SweetNela.Controllers
         {
             return View("Error!");
         }
+
     }
+    
+
 }
