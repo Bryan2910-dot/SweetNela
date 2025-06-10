@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C586735E-046A-8DA2-73DA-AB2D1EC0219A}|SweetNela.csproj|c:\\users\\usuario\\downloads\\proyectovero\\sweetnela\\ml\\mlmodelsentimentalanalysis.mbconfig||{93FA4DC3-61EC-47AF-B0BA-50CAD3CAF049}",
+      "RelativeMoniker": "D:0:0:{C586735E-046A-8DA2-73DA-AB2D1EC0219A}|SweetNela.csproj|solutionrelative:ml\\mlmodelsentimentalanalysis.mbconfig||{93FA4DC3-61EC-47AF-B0BA-50CAD3CAF049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C586735E-046A-8DA2-73DA-AB2D1EC0219A}|SweetNela.csproj|c:\\users\\usuario\\downloads\\proyectovero\\sweetnela\\mlsentimiento.consumption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C586735E-046A-8DA2-73DA-AB2D1EC0219A}|SweetNela.csproj|solutionrelative:mlsentimiento.consumption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MLModelSentimentalAnalysis.mbconfig",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\ML\\MLModelSentimentalAnalysis.mbconfig",
+              "RelativeDocumentMoniker": "ML\\MLModelSentimentalAnalysis.mbconfig",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\ML\\MLModelSentimentalAnalysis.mbconfig",
+              "RelativeToolTip": "ML\\MLModelSentimentalAnalysis.mbconfig",
+              "Icon": "7f5c38b0-f0bc-4551-a9a8-b4f467cc4670.000012|",
+              "WhenOpened": "2025-06-10T04:47:22.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MLSentimiento.consumption.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\MLSentimiento.consumption.cs",
+              "RelativeDocumentMoniker": "MLSentimiento.consumption.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\MLSentimiento.consumption.cs",
+              "RelativeToolTip": "MLSentimiento.consumption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T04:47:08.634Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

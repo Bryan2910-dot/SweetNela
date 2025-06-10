@@ -1,5 +1,5 @@
 ﻿{
-  "Scenario": "TextClassification",
+  "Scenario": "Recommendation",
   "DataSource": {
     "Version": 3,
     "EscapeCharacter": "\"",
@@ -8,15 +8,23 @@
     "KeepPunctuations": false,
     "AllowQuoting": false,
     "Type": "TabularFile",
-    "FilePath": "D:\BRYAN\clases\PROGRAMACION 1\SweetNela\SweetNela\ML\SetimentalAnalysis\trainingdata\\comentarios_entrenamiento.csv",
+    "FilePath": "C:\\Users\\USUARIO\\Downloads\\PcVeroProgra4\\Pc4Vero\\EcommercePC4\\MLModels\\ratings-data.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,
     "ColumnProperties": [
       {
-        "ColumnName": "Comentario",
-        "ColumnPurpose": "Text",
-        "ColumnDataFormat": "String",
+        "ColumnName": "UserId",
+        "ColumnPurpose": "User",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "ProductId",
+        "ColumnPurpose": "Item",
+        "ColumnDataFormat": "Single",
         "IsCategorical": false,
         "Type": "Column",
         "Version": 5
@@ -25,14 +33,14 @@
         "ColumnName": "Label",
         "ColumnPurpose": "Label",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       }
     ]
   },
   "Environment": {
-    "Type": "LocalGPU",
+    "Type": "LocalCPU",
     "Version": 1
   },
   "RunHistory": {
@@ -42,50 +50,173 @@
       {
         "Version": 1,
         "Type": "Trial",
-        "TrainerName": "TextClassificationMulti",
-        "Score": 1.0,
-        "RuntimeInSeconds": 27.878,
+        "TrainerName": "MatrixFactorization",
+        "Score": -1.2055809761984504,
+        "RuntimeInSeconds": 1.711,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
           "e0": {
-            "OutputColumnName": "Label",
-            "InputColumnName": "Label",
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId",
             "AddKeyValueAnnotationsAsText": false
           },
           "e1": {
-            "LabelColumnName": "Label",
-            "Sentence1ColumnName": "Comentario",
-            "ScoreColumnName": "Score",
-            "OutputColumnName": "PredictedLabel",
-            "BatchSize": 32,
-            "MaxEpochs": 10,
-            "Architecture": "Roberta"
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId",
+            "AddKeyValueAnnotationsAsText": false
           },
           "e2": {
-            "OutputColumnName": "PredictedLabel",
-            "InputColumnName": "PredictedLabel"
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "UserId",
+            "MatrixRowIndexColumnName": "ProductId",
+            "ApproximationRank": 69,
+            "LearningRate": 0.17301015364394742,
+            "NumberOfIterations": 201,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId"
+          },
+          "e4": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -1.2178398157934467,
+        "RuntimeInSeconds": 0.728,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "UserId",
+            "MatrixRowIndexColumnName": "ProductId",
+            "ApproximationRank": 29,
+            "LearningRate": 0.26557386494057322,
+            "NumberOfIterations": 80,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId"
+          },
+          "e4": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -1.6711284920757492,
+        "RuntimeInSeconds": 0.306,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "UserId",
+            "MatrixRowIndexColumnName": "ProductId",
+            "ApproximationRank": 12,
+            "LearningRate": 0.40766091615999922,
+            "NumberOfIterations": 31,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId"
+          },
+          "e4": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "MatrixFactorization",
+        "Score": -64.58656824310296,
+        "RuntimeInSeconds": 2.565,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4",
+          "e0": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e1": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e2": {
+            "LabelColumnName": "Label",
+            "MatrixColumnIndexColumnName": "UserId",
+            "MatrixRowIndexColumnName": "ProductId",
+            "ApproximationRank": 24,
+            "LearningRate": 0.0030010281257913437,
+            "NumberOfIterations": 286,
+            "Quiet": true
+          },
+          "e3": {
+            "OutputColumnName": "UserId",
+            "InputColumnName": "UserId"
+          },
+          "e4": {
+            "OutputColumnName": "ProductId",
+            "InputColumnName": "ProductId"
           }
         }
       }
     ],
     "Estimators": {
       "e0": "MapValueToKey",
-      "e1": "TextClassificationMulti",
-      "e2": "MapKeyToValue"
+      "e1": "MapValueToKey",
+      "e2": "MatrixFactorization",
+      "e3": "MapKeyToValue",
+      "e4": "MapKeyToValue"
     },
-    "Schema": "e0 * e1 * e2",
-    "MetricName": "MicroAccuracy",
-    "ModelFilePath": "D:\\BRYAN\\clases\\PROGRAMACION 1\\SweetNela\\SweetNela\\ML\\\\MLModelSentimentalAnalysis.mlnet"
+    "Schema": "e0 * e1 * e2 * e3 * e4",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\USUARIO\\Downloads\\ProyectoVero\\SweetNela\\ML\\MLModelSentimentalAnalysis.mlnet"
   },
   "Type": "TrainingConfig",
   "Version": 5,
   "TrainingOption": {
-    "Version": 1,
-    "Type": "TextClassficationTrainingOption",
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RecommendationTrainingOption",
     "TrainingTime": 10,
-    "OptimizeMetric": "MicroAccuracy",
     "LabelColumn": "Label",
-    "TextColumn": "Comentario",
+    "UserIdColumn": "UserId",
+    "ItemIdColumn": "ProductId",
     "ValidationOption": {
       "Version": 0,
       "Type": "CrossValidationValidationOption",

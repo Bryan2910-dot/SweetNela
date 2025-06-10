@@ -7,19 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML;
 using Microsoft.ML.Data;
-using Microsoft.ML.TorchSharp;
 using Microsoft.ML.Trainers;
 
-namespace apptienda.ML
+namespace SweetNela
 {
     public partial class MLModelSentimentalAnalysis
     {
-        public const string RetrainFilePath = @"D:\BRYAN\clases\PROGRAMACION 1\SweetNela\SweetNela\ML\SetimentalAnalysis\trainingdata\comentarios_entrenamiento.csv";
+        public const string RetrainFilePath =  @"C:\Users\USUARIO\Downloads\PcVeroProgra4\Pc4Vero\EcommercePC4\MLModels\ratings-data.csv";
         public const char RetrainSeparatorChar = ',';
-        public const bool RetrainHasHeader = true;
-        public const bool RetrainAllowQuoting = false;
+        public const bool RetrainHasHeader =  true;
+        public const bool RetrainAllowQuoting =  false;
 
-        /// <summary>
+         /// <summary>
         /// Train a new model with the provided dataset.
         /// </summary>
         /// <param name="outputModelPath">File path for saving the model. Should be similar to "C:\YourPath\ModelName.mlnet"</param>
@@ -90,11 +89,13 @@ namespace apptienda.ML
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: @"Label", inputColumnName: @"Label", addKeyValueAnnotationsAsText: false)
-                                    .Append(mlContext.MulticlassClassification.Trainers.TextClassification(labelColumnName: @"Label", sentence1ColumnName: @"Comentario"))
-                                    .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName: @"PredictedLabel", inputColumnName: @"PredictedLabel"));
+            var pipeline = mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"ProductId",inputColumnName:@"ProductId",addKeyValueAnnotationsAsText:false)      
+                                    .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"UserId",inputColumnName:@"UserId",addKeyValueAnnotationsAsText:false))      
+                                    .Append(mlContext.Recommendation().Trainers.MatrixFactorization(new MatrixFactorizationTrainer.Options(){LabelColumnName=@"Label",MatrixColumnIndexColumnName=@"UserId",MatrixRowIndexColumnName=@"ProductId",ApproximationRank=69,LearningRate=0.17301015364394742,NumberOfIterations=201,Quiet=true}))      
+                                    .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"UserId",inputColumnName:@"UserId"))      
+                                    .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"ProductId",inputColumnName:@"ProductId"));
 
             return pipeline;
         }
     }
-}
+ }

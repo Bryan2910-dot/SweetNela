@@ -235,48 +235,30 @@
     </div>
 </section>
       <!-- contactar -->
-      <section class="contact-section" id="contact">
-        <h2 class="section-title" style="color: black;">Contactanos</h2>
-        <div class="section-content">
-          <ul class="contact-info-list">
-            <li class="contact-info">
-              <i class="fa-solid fa-location-crosshairs"></i>
-              <p>dirreccion:San juan de miraflores</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-regular fa-envelope"></i>
-              <p>sweetnela@gmail.com</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-solid fa-phone"></i>
-              <p>926 635 137</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-regular fa-clock"></i>
-              <p>lunes a viernes: 9:00 AM - 5:00 PM</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-regular fa-clock"></i>
-              <p>sabados: 10:00 AM - 3:00 PM</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-regular fa-clock"></i>
-              <p>domingos: Cerrado</p>
-            </li>
-            <li class="contact-info">
-              <i class="fa-solid fa-globe"></i>
-              <p>www.sweetnela.com</p>
-            </li>
+     <section class="contact-section" id="contact">
+      <h2 class="section-title text-center text-2xl font-bold text-gray-800 mb-6">Contáctanos</h2>
+      <div class="section-content">
+        <div class="contact-info-list">
+          <ul>
+            <li><i class="fa-solid fa-location-dot"></i> San Juan de Miraflores, Lima</li>
+            <li><i class="fa-solid fa-envelope"></i> sweetnela@gmail.com</li>
+            <li><i class="fa-solid fa-phone"></i> 926 635 137</li>
+            <li><i class="fa-solid fa-clock"></i> Lunes a Viernes: 9:00 AM - 5:00 PM</li>
+            <li><i class="fa-solid fa-clock"></i> Sábados: 10:00 AM - 3:00 PM</li>
+            <li><i class="fa-solid fa-clock"></i> Domingos: Cerrado</li>
+            <li><i class="fa-solid fa-globe"></i> www.sweetnela.com</li>
           </ul>
-<form method="get" asp-controller="Contacto" asp-action="Create" class="contact-form">
-  <input type="text" name="nombre" placeholder="Nombre" class="form-input" required />
-  <input type="email" name="email" placeholder="Email" class="form-input" required />
-  <textarea name="mensaje" placeholder="Mensaje" class="form-input" required></textarea>
-  <button type="submit" class="button submit-button bg-pink-500 text-white">Ir a Crear Contacto</button>
-</form>
-
         </div>
-      </section>
+        <form method="get" asp-controller="Contacto" asp-action="Create" class="contact-form">
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <input type="email" name="email" placeholder="Tu correo" required />
+          <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+
       </body>
 
 

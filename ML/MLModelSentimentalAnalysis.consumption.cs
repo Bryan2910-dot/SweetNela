@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace apptienda.ML
+namespace SweetNela
 {
     public partial class MLModelSentimentalAnalysis
     {
@@ -16,10 +16,14 @@ namespace apptienda.ML
         public class ModelInput
         {
             [LoadColumn(0)]
-            [ColumnName(@"Comentario")]
-            public string Comentario { get; set; }
+            [ColumnName(@"UserId")]
+            public float UserId { get; set; }
 
             [LoadColumn(1)]
+            [ColumnName(@"ProductId")]
+            public float ProductId { get; set; }
+
+            [LoadColumn(2)]
             [ColumnName(@"Label")]
             public float Label { get; set; }
 
@@ -33,23 +37,23 @@ namespace apptienda.ML
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"Comentario")]
-            public string Comentario { get; set; }
+            [ColumnName(@"UserId")]
+            public float UserId { get; set; }
+
+            [ColumnName(@"ProductId")]
+            public float ProductId { get; set; }
 
             [ColumnName(@"Label")]
-            public uint Label { get; set; }
-
-            [ColumnName(@"PredictedLabel")]
-            public float PredictedLabel { get; set; }
+            public float Label { get; set; }
 
             [ColumnName(@"Score")]
-            public float[] Score { get; set; }
+            public float Score { get; set; }
 
         }
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("./ML/SetimentalAnalysis/MLModelSentimentalAnalysis.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath("MLModelSentimentalAnalysis.mlnet");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
@@ -57,65 +61,8 @@ namespace apptienda.ML
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()
         {
             var mlContext = new MLContext();
-            mlContext.GpuDeviceId = 0;
-            mlContext.FallbackToCpu = false;
             ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var _);
             return mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
-        }
-
-        /// <summary>
-        /// Use this method to predict scores for all possible labels.
-        /// </summary>
-        /// <param name="input">model input.</param>
-        /// <returns><seealso cref=" ModelOutput"/></returns>
-        public static IOrderedEnumerable<KeyValuePair<string, float>> PredictAllLabels(ModelInput input)
-        {
-            var result = Predict(input);
-            return GetSortedScoresWithLabels(result);
-        }
-
-        /// <summary>
-        /// Map the unlabeled result score array to the predicted label names.
-        /// </summary>
-        /// <param name="result">Prediction to get the labeled scores from.</param>
-        /// <returns>Ordered list of label and score.</returns>
-        /// <exception cref="Exception"></exception>
-        public static IOrderedEnumerable<KeyValuePair<string, float>> GetSortedScoresWithLabels(ModelOutput result)
-        {
-            var unlabeledScores = result.Score;
-            var labelNames = GetLabels(result);
-
-            Dictionary<string, float> labledScores = new Dictionary<string, float>();
-            for (int i = 0; i < labelNames.Count(); i++)
-            {
-                // Map the names to the predicted result score array
-                var labelName = labelNames.ElementAt(i);
-                labledScores.Add(labelName.ToString(), unlabeledScores[i]);
-            }
-
-            return labledScores.OrderByDescending(c => c.Value);
-        }
-
-        /// <summary>
-        /// Get the ordered label names.
-        /// </summary>
-        /// <param name="result">Predicted result to get the labels from.</param>
-        /// <returns>List of labels.</returns>
-        /// <exception cref="Exception"></exception>
-        private static IEnumerable<string> GetLabels(ModelOutput result)
-        {
-            var schema = PredictEngine.Value.OutputSchema;
-
-            var labelColumn = schema.GetColumnOrNull("Label");
-            if (labelColumn == null)
-            {
-                throw new Exception("Label column not found. Make sure the name searched for matches the name in the schema.");
-            }
-
-            // Key values contains an ordered array of the possible labels. This allows us to map the results to the correct label value.
-            var keyNames = new VBuffer<float>();
-            labelColumn.Value.GetKeyValues(ref keyNames);
-            return keyNames.DenseValues().Select(x => x.ToString());
         }
 
         /// <summary>
@@ -126,15 +73,7 @@ namespace apptienda.ML
         public static ModelOutput Predict(ModelInput input)
         {
             var predEngine = PredictEngine.Value;
-            var output = predEngine.Predict(input);
-            var scores = output.Score;
-
-            // To get scores sum up to 1
-            var exp = scores.Select(x => (float)Math.Exp(x));
-            var softMaxScores = exp.Select(x => x / exp.Sum()).ToArray();
-            output.Score = softMaxScores;
-            return output;
-
+            return predEngine.Predict(input);
         }
     }
 }
