@@ -8,6 +8,8 @@ using SweetNela.Data;
 using SweetNela.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
+using SweetNela.Hubs;
 
 namespace SweetNela.Controllers
 {
@@ -16,10 +18,16 @@ namespace SweetNela.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ContactoController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        private readonly IHubContext<ChatHub> _hubContext;
+
+        public ContactoController(
+            ApplicationDbContext context,
+            UserManager<IdentityUser> userManager,
+            IHubContext<ChatHub> hubContext)
         {
             _context = context;
             _userManager = userManager;
+            _hubContext = hubContext;
         }
 
         // GET: Contacto
@@ -88,6 +96,8 @@ namespace SweetNela.Controllers
 
             _context.DbSetMensajeChat.Add(mensaje);
             await _context.SaveChangesAsync();
+
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", user.Email, contenido);
 
             return RedirectToAction("Create");
         }
@@ -205,6 +215,8 @@ namespace SweetNela.Controllers
 
             _context.DbSetMensajeChat.Add(mensaje);
             await _context.SaveChangesAsync();
+
+            await _hubContext.Clients.All.SendAsync("ReceiveMessage", Remitente, Contenido);
 
             return RedirectToAction("Chat", new { id = ContactoId });
         }
